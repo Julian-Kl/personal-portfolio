@@ -21,3 +21,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/assets/fonts/Cosima-Bold.woff
+src/assets/fonts/Cosima-Hairline.woff
+src/assets/fonts/Cosima-Light.woff
+src/assets/fonts/Cosima-Medium.woff
+src/assets/fonts/Cosima-Regular.woff
+src/assets/fonts/Cosima-Thin.woff
+src/assets/fonts/Cosima-UltraLight.woff
+src/assets/fonts/Cosima-UltraThin.woff
