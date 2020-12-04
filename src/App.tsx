@@ -1,13 +1,18 @@
-import React from 'react';
-import './App.scss';
+import React, { useState, useMemo} from 'react';
+import './Style/App.scss';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { Navbar } from './domain/navbar/Navbar';
 
-export default function App() {
+
+const App: React.FC = () => {
   return (
     <React.Fragment>
+      <Navbar/>
       <div>
-        <p>Hello I'm Julian</p>
+        <p>Hello I'm Julian. This is my portfolio</p>
       </div>
     </React.Fragment>
   );
 }
+
+export default App;
