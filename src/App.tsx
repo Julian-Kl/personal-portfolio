@@ -1,16 +1,15 @@
 import React, { useState, useMemo} from 'react';
-import './Style/App.scss';
+import './css/App.scss';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Navbar } from './domain/navbar/Navbar';
+import { About } from './domain/about/about';
 
 
 const App: React.FC = () => {
   return (
     <React.Fragment>
       <Navbar/>
-      <div>
-        <p>Hello I'm Julian. This is my portfolio</p>
-      </div>
+      <About/>
     </React.Fragment>
   );
 }
