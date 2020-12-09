@@ -1,20 +1,17 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import FormGroup from '@material-ui/core/FormGroup';
+import FormControl from '@material-ui/core/FormControl';
+import Box from '@material-ui/core/Box';
 import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import TranslateIcon from '@material-ui/icons/Translate';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,10 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
     menuButton: {
       marginRight: theme.spacing(2),
     },
-    title: {
-      display: 'none',
-      [theme.breakpoints.up('sm')]: {
-        display: 'block',
+    collapse: {
+      [theme.breakpoints.down('xs')]: {
+        display: 'none',
       },
     },
     inputRoot: {
@@ -41,145 +37,89 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
       [theme.breakpoints.up('md')]: {
         width: '20ch',
-      },
-    },
-    sectionDesktop: {
-      display: 'none',
-      [theme.breakpoints.up('md')]: {
-        display: 'flex',
-      },
-    },
-    sectionMobile: {
-      display: 'flex',
-      [theme.breakpoints.up('md')]: {
-        display: 'none',
-      },
+      }
     },
   }),
 );
 
 export const Navbar: React.FC = () => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [themeToggle, setThemeToggle] = React.useState<boolean>(false);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const [anchorMainMenu, setAnchorMainMenu] = React.useState<null | HTMLElement>(null);
+  const [anchorLanguageMenu, setLanguageMenu] = React.useState<null | HTMLElement>(null);
+  const [themeToggle, setThemeToggle] = React.useState<boolean>(true);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
+    let target = event.currentTarget.getAttribute('aria-controls');
+    if (target === 'main-menu') {
+      setAnchorMainMenu(event.currentTarget);
+    } else if (target === 'language-menu') {
+      setLanguageMenu(event.currentTarget);
+    } else {
+      console.log("Error: aria-control target of button is set to a value to which no menu exists.")
+    }
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorMainMenu(null);
+    setLanguageMenu(null);
   };
 
-  const changeTheme = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const changeTheme = () => {
     { themeToggle ? setThemeToggle(false) : setThemeToggle(true) }
   };
 
-  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = 'primary-menu';
-
-  const mobileMenuId = 'primary-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-      <FormGroup>
-              <Switch checked={themeToggle} onChange={changeTheme} aria-label="login switch" />
-            </FormGroup>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-              EN
-            </Button>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>EN</MenuItem>
-              <MenuItem onClick={handleClose}>DE</MenuItem>
-            </Menu>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
-    <div className={classes.grow}>
-      <AppBar position="static" color="inherit">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
+    <div>
+      <Toolbar>
+        <IconButton
+          className={classes.menuButton}
+          aria-controls="main-menu"
+          aria-haspopup="true"
+          color="secondary"
+          onClick={handleClick}
+        >
+          <MenuIcon fontSize="large" />
+        </IconButton>
+        <Menu
+          id="main-menu"
+          anchorEl={anchorMainMenu}
+          keepMounted
+          open={Boolean(anchorMainMenu)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>About</MenuItem>
+          <MenuItem onClick={handleClose}>Skills</MenuItem>
+          <MenuItem onClick={handleClose}>Portfolio</MenuItem>
+          <MenuItem onClick={handleClose}>Contact</MenuItem>
+        </Menu>
+        <div className={classes.grow} />
+        <Brightness4Icon color="secondary" onClick={changeTheme} />
+        <FormControl>
+          <Switch
+            className={classes.collapse}
+            checked={themeToggle}
+            color="secondary"
+            aria-label="theme-switch"
+            onChange={changeTheme} size="medium" />
+        </FormControl>
+        <Box ml="3">
+          <Button startIcon={<TranslateIcon />} size="large" aria-controls="language-menu" aria-haspopup="true" color="secondary" onClick={handleClick}>
+            <Typography className={classes.collapse}>
+              English
+            </Typography>
+          </Button>
+          <Menu
+            id="language-menu"
+            anchorEl={anchorLanguageMenu}
+            keepMounted
+            open={Boolean(anchorLanguageMenu)}
+            onClose={handleClose}
           >
-            <MenuIcon fontSize="large" />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Welcome
-          </Typography>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <FormGroup>
-              <Switch checked={themeToggle} onChange={changeTheme} aria-label="login switch" />
-            </FormGroup>
-            <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-              EN
-            </Button>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>EN</MenuItem>
-              <MenuItem onClick={handleClose}>DE</MenuItem>
-            </Menu>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
+            <MenuItem onClick={handleClose}>English</MenuItem>
+            <MenuItem onClick={handleClose}>German</MenuItem>
+          </Menu>
+        </Box>
+      </Toolbar>
     </div>
   );
 }

@@ -10,13 +10,14 @@ export const theme = createMuiTheme({
     },
     secondary: {
       light: '#b084f4',
-      main: '#7e56c1',
+      main: '#fff',
       dark: '#4d2b90',
       contrastText: '#000',
     },
   },
   typography: {
     h1: {
-      fontFamily: "Cosima, Impact"}
+      fontFamily: "Cosima, Impact"
+    }
   }
 });
