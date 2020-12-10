@@ -4,15 +4,21 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Navbar } from './domain/navbar/Navbar';
 import { ContactButton } from './components/ContactButton';
 import { About } from './domain/about/about';
+import { SkillCard } from './components/SkillCard';
 
 
 const App: React.FC = () => {
   return (
-    <React.Fragment>
+    <Router>
       <Navbar/>
-      <ContactButton/>
-      <About/>
-    </React.Fragment>
+      <Route path="/about">
+        <ContactButton/>
+        <About/>
+      </Route>
+      <Route path="/skills">
+        <SkillCard/>
+      </Route>
+    </Router>
   );
 }
 

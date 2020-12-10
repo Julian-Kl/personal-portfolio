@@ -24,6 +24,10 @@ export const theme = createMuiTheme({
       fontFamily: "Cosima, Impact",
       fontWeight: 600
     },
+    h3: {
+      fontFamily: "Cosima, Impact",
+      fontWeight: 400
+    },
     body1: {
       fontFamily: "Cosima, Impact",
       fontWeight: 600
