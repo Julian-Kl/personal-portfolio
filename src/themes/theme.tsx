@@ -17,7 +17,24 @@ export const theme = createMuiTheme({
   },
   typography: {
     h1: {
-      fontFamily: "Cosima, Impact"
+      fontFamily: "Cosima, Impact",
+      fontWeight: 600
+    },
+    h2: {
+      fontFamily: "Cosima, Impact",
+      fontWeight: 600
+    },
+    body1: {
+      fontFamily: "Cosima, Impact",
+      fontWeight: 600
+    },
+    body2: {
+      fontFamily: "Cosima, Impact",
+      fontWeight: 300
+    },
+    button: {
+      fontFamily: "Cosima, Impact",
+      fontWeight: 600
     }
-  }
+  },
 });
