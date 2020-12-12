@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
   },
   backgroundLight: {
     height: '100vh',
-    background: 'linear-gradient(140deg, #949BA0 20%, #A0B9BF 40%, #BCD4DE)',
+    background: 'linear-gradient(140deg, #c1ebff 20%, #a7e2fe 40%, #80d6ff)',
   },
 })
 
