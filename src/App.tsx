@@ -16,7 +16,6 @@ const App: React.FC = () => {
             <Route path="/about">
               <ContactButton />
               <About />
-              <SkillCard />
             </Route>
             <Route path="/skills">
               <SkillCard />
