@@ -69,10 +69,10 @@ export const About: React.FC = () => {
       <Container fixed>
         <Box m={1} p={1}>
           <Box className={classes.textBox}>
-            <Typography component="h1" variant="h1" color="secondary" className={classes.headline}>
+            <Typography component="h1" variant="h1" color="textPrimary" className={classes.headline}>
               Julian Klummer
             </Typography>
-            <Typography component="p" variant="body2" color="secondary" className={classes.text}>
+            <Typography component="p" variant="body2" color="textPrimary" className={classes.text}>
               Online media generalist specialized in front end development
             </Typography>
           </Box>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,6 +12,7 @@ import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import TranslateIcon from '@material-ui/icons/Translate';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,6 +49,9 @@ export const Navbar: React.FC = () => {
   const [anchorLanguageMenu, setLanguageMenu] = React.useState<null | HTMLElement>(null);
   const [themeToggle, setThemeToggle] = React.useState<boolean>(true);
 
+  const themeContext = useContext(ThemeContext);
+
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     let target = event.currentTarget.getAttribute('aria-controls');
     if (target === 'main-menu') {
@@ -65,8 +69,30 @@ export const Navbar: React.FC = () => {
   };
 
   const changeTheme = () => {
-    { themeToggle ? setThemeToggle(false) : setThemeToggle(true) }
+    if(themeContext){
+      if(themeContext.theme === 'dark'){
+        setThemeToggle(false)
+        themeContext.setTheme('light')
+      } else {
+        setThemeToggle(true)
+        themeContext.setTheme('dark')
+      }
+    } else {
+      console.log('Theme Context Error: Neither default value or device value are set.')
+    }
   };
+
+  useEffect(() => {
+    if(themeContext){
+      if(themeContext.theme === 'dark'){
+        setThemeToggle(false)
+      } else {
+        setThemeToggle(true)
+      }
+    } else {
+      console.log('Theme Context Error: Neither default value or device value are set.')
+    }
+  })
 
   return (
     <div>
@@ -75,7 +101,6 @@ export const Navbar: React.FC = () => {
           className={classes.menuButton}
           aria-controls="main-menu"
           aria-haspopup="true"
-          color="secondary"
           onClick={handleClick}
         >
           <MenuIcon fontSize="large" />
@@ -93,17 +118,22 @@ export const Navbar: React.FC = () => {
           <MenuItem onClick={handleClose}>Contact</MenuItem>
         </Menu>
         <div className={classes.grow} />
-        <Brightness4Icon color="secondary" onClick={changeTheme} />
-        <FormControl>
-          <Switch
-            className={classes.collapse}
-            checked={themeToggle}
-            color="secondary"
-            aria-label="theme-switch"
-            onChange={changeTheme} size="medium" />
-        </FormControl>
+          <Brightness4Icon onClick={changeTheme} />
+          <FormControl>
+            <Switch
+              color="default"
+              className={classes.collapse}
+              checked={themeToggle}
+              aria-label="theme-switch"
+              onChange={changeTheme} size="medium" />
+          </FormControl>
         <Box ml="3">
-          <Button startIcon={<TranslateIcon />} size="large" aria-controls="language-menu" aria-haspopup="true" color="secondary" onClick={handleClick}>
+          <Button
+            startIcon={<TranslateIcon />}
+            size="large"
+            aria-controls="language-menu"
+            aria-haspopup="true"
+            onClick={handleClick}>
             <Typography className={classes.collapse}>
               English
             </Typography>

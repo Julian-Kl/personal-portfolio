@@ -26,7 +26,7 @@ export const ContactButton: React.FC = (props) => {
 
   return (
     <Box className={classes.contactButton}>
-      <Button endIcon={<ChatIcon />} variant="outlined" size="large" color="secondary">
+      <Button endIcon={<ChatIcon />} variant="outlined" size="large">
         Contact</Button>
     </Box>
   );
