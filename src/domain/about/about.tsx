@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import { Typography } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -64,6 +65,10 @@ const useStyles = makeStyles((theme: Theme) =>
 export const About: React.FC = () => {
   const classes = useStyles();
 
+  const languageContext = useContext(LanguageContext);
+
+  const about = languageContext?.dictionary.about;
+
   return (
     <React.Fragment>
       <Container fixed>
@@ -73,7 +78,7 @@ export const About: React.FC = () => {
               Julian Klummer
             </Typography>
             <Typography component="p" variant="body2" color="textPrimary" className={classes.text}>
-              Online media generalist specialized in front end development
+              {about}
             </Typography>
           </Box>
         </Box>

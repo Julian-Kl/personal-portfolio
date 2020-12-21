@@ -1,9 +1,14 @@
 import { createContext } from 'react';
 
+interface Dictionary {
+    contactButton: string,
+    about: string
+}
+
 interface LanguageContext {
     userLanguage: 'en' | 'de',
     setUserLanguage: Function,
-    dictionary: object
+    dictionary: Dictionary
 }
 
 export const LanguageContext = createContext<LanguageContext | null>(null);
