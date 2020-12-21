@@ -1,4 +1,9 @@
 {
     "contactButton": "Kontakt",
-    "about": "Online Medien Generalist spezalisiert auf Front-End Entwicklung"
+    "about": "Online Medien Generalist spezalisiert auf Front-End Entwicklung",
+    "skillSection1": {
+        "title": "Programmieren",
+        "skills": ["JavaScript, TypeScript"],
+        "levels": [4, 2]
+    }
 }

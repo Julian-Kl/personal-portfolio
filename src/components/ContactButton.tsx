@@ -28,7 +28,6 @@ export const ContactButton: React.FC = (props) => {
 
   const contactButton = languageContext?.dictionary.contactButton;
 
-
   return (
     <Box className={classes.contactButton}>
       <Button endIcon={<ChatIcon />} variant="outlined" size="large">

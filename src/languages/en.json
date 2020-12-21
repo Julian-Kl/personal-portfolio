@@ -1,4 +1,9 @@
 {
     "contactButton": "Contact",
-    "about": "Online media generalist specialized in front end development"
+    "about": "Online media generalist specialized in front end development",
+    "skillSection1": {
+        "title": "Programming",
+        "skills": ["JavaScript, TypeScript"],
+        "levels": [4, 2]
+    }
 }

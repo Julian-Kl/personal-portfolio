@@ -2,7 +2,12 @@ import { createContext } from 'react';
 
 interface Dictionary {
     contactButton: string,
-    about: string
+    about: string,
+    skillSection1: {
+      title: string
+      skills: string[],
+      levels: number[]
+    }
 }
 
 interface LanguageContext {

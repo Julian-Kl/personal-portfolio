@@ -4,10 +4,16 @@ import './normalize.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { LanguageHelper } from './languages/LanguageHelper';
+import { ThemeHelper } from './themes/ThemeHelper';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <LanguageHelper>
+      <ThemeHelper>
+        <App />
+      </ThemeHelper>
+    </LanguageHelper>
   </React.StrictMode>,
   document.getElementById('root')
 );
