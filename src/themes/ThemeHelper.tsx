@@ -10,7 +10,7 @@ export const ThemeHelper: React.FC = (props) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const [appliedTheme, setAppliedTheme] = useState(getTheme(dark));
 
-  const themeMemo = useMemo(() => ({theme, setTheme}), [theme, setTheme]);
+  const themeMemo = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 
   const classes = useStyles();
 
@@ -46,7 +46,7 @@ export const ThemeHelper: React.FC = (props) => {
     <div className={theme === 'light' ? classes.backgroundLight : classes.backgroundDark}>
       <ThemeProvider theme={appliedTheme}>
         <ThemeContextProvider value={themeMemo}>
-        {props.children}
+          {props.children}
         </ThemeContextProvider>
         <CssBaseline />
       </ThemeProvider>

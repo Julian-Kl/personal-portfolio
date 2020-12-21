@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import TranslateIcon from '@material-ui/icons/Translate';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,7 +51,7 @@ export const Navbar: React.FC = () => {
   const [themeToggle, setThemeToggle] = React.useState<boolean>(true);
 
   const themeContext = useContext(ThemeContext);
-
+  const languageContext = useContext(LanguageContext);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     let target = event.currentTarget.getAttribute('aria-controls');
@@ -92,7 +93,18 @@ export const Navbar: React.FC = () => {
     } else {
       console.log('Theme Context Error: Neither default value or device value are set.')
     }
-  })
+  });
+
+  let languageLabel = 'Language';
+  if (languageContext?.userLanguage === 'en'){
+    languageLabel = 'English';
+  } else {
+    languageLabel = 'Deutsch';
+  }
+
+  const changeLanguage = (props: string) => {
+    languageContext?.setUserLanguage(props)
+  }
 
   return (
     <div>
@@ -135,7 +147,7 @@ export const Navbar: React.FC = () => {
             aria-haspopup="true"
             onClick={handleClick}>
             <Typography className={classes.collapse}>
-              English
+              {languageLabel}
             </Typography>
           </Button>
           <Menu
@@ -145,8 +157,14 @@ export const Navbar: React.FC = () => {
             open={Boolean(anchorLanguageMenu)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>English</MenuItem>
-            <MenuItem onClick={handleClose}>German</MenuItem>
+            <MenuItem onClick={() => {
+              changeLanguage('en');
+              handleClose();
+            }}>English</MenuItem>
+            <MenuItem onClick={() => {
+              changeLanguage('de');
+              handleClose();
+            }}>Deutsch</MenuItem>
           </Menu>
         </Box>
       </Toolbar>

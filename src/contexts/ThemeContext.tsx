@@ -5,7 +5,7 @@ interface ThemeContext {
     setTheme: Function
 }
 
-export const ThemeContext = React.createContext<ThemeContext | null>(null);
+export const ThemeContext = createContext<ThemeContext | null>(null);
 
 export const ThemeContextProvider = ThemeContext.Provider;
 

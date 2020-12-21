@@ -6,21 +6,24 @@ import { ContactButton } from './components/ContactButton';
 import { About } from './domain/about/about';
 import { SkillCard } from './components/SkillCard';
 import { ThemeHelper } from './themes/ThemeHelper';
+import { LanguageHelper } from './languages/LanguageHelper';
 
 const App: React.FC = () => {
 
   return (
       <ThemeHelper>
-        <Router>
-          <Navbar/>
-            <Route path="/about">
-              <ContactButton />
-              <About />
-            </Route>
-            <Route path="/skills">
-              <SkillCard />
-            </Route>
-        </Router>
+        <LanguageHelper>
+          <Router>
+            <Navbar/>
+              <Route path="/about">
+                <ContactButton />
+                <About />
+              </Route>
+              <Route path="/skills">
+                <SkillCard />
+              </Route>
+          </Router>
+        </LanguageHelper>
       </ThemeHelper>
   );
 }
