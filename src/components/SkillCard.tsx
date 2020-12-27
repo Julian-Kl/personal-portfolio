@@ -1,17 +1,28 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Box from '@material-ui/core/Box';
+import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import Brightness1Icon from '@material-ui/icons/Brightness1';
 
-const useStyles = makeStyles({
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-});
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+      maxWidth: 752,
+    }
+  }),
+);
 
 interface Props {
   title: string,
@@ -24,25 +35,36 @@ export const SkillCard: React.FC<Props> = (props) => {
 
   console.log(props);
 
+  function generate() {
+    return [0, 1, 2].map((value) =>
+      <React.Fragment>
+        <ListItem>
+          <ListItemText
+            primary="TypeScript"
+          />
+          <Brightness1Icon color="primary" />
+          <Brightness1Icon color="primary" />
+          <Brightness1Icon color="primary" />
+          <RadioButtonUncheckedIcon color="primary" />
+          <RadioButtonUncheckedIcon color="primary" />
+        </ListItem>
+        <Divider />
+      </React.Fragment>
+    );
+  }
+
   return (
-    <Box m={2}>
-      <Card>
-        <CardContent>
-          <Typography variant="h4" component="h2" color="textPrimary" >
+    <div className={classes.root}>
+      <Paper elevation={3}>
+        <Box pt={2}>
+          <Typography variant="h4" component="h2" align="center">
             {props.title}
           </Typography>
-          <Box ml={0.4} mt={3}>
-            <Typography variant="body1" component="p" color="textPrimary" display="inline">
-              JavaScript
-            </Typography>
-          </Box>
-          <Box ml={0.4} mt={3}>
-            <Typography variant="body1" component="p" color="textPrimary">
-              TypeScript
-            </Typography>
-          </Box>
-        </CardContent>
-      </Card>
-    </Box>
+        </Box>
+        <List>
+          {generate()}
+        </List>
+      </Paper>
+    </div>
   );
 }

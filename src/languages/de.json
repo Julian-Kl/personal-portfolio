@@ -3,7 +3,7 @@
     "about": "Online Medien Generalist spezalisiert auf Front-End Entwicklung",
     "skillSection1": {
         "title": "Programmieren",
-        "skills": ["JavaScript, TypeScript"],
+        "skills": ["JavaScript", "TypeScript"],
         "levels": [4, 2]
     }
 }
