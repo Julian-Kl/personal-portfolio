@@ -16,38 +16,6 @@ import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import { LanguageContext } from '../contexts/LanguageContext';
 
-/*
-function Skill(props: Props) {
-  const divider = (value: string) => {
-    if (props.skills.indexOf(value) < props.skills.length) {
-      return (<Divider />);
-    }
-  }
-
-  return (
-    props.skills.map((value) =>
-      <React.Fragment>
-        <ListItem>
-          <ListItemText
-            primary={value}
-          />
-          <Brightness1Icon color="primary" />
-          <Brightness1Icon color="primary" />
-          <Brightness1Icon color="primary" />
-          <RadioButtonUncheckedIcon color="primary" />
-          <RadioButtonUncheckedIcon color="primary" />
-        </ListItem>
-        {divider(value)}
-      </React.Fragment>
-    ));
-}
-
-interface Props {
-  skills: string[],
-  levels: number[]
-}
-*/
-
 const Checked: React.FC = () => {
   return <Brightness1Icon color="primary" />;
 }

@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const Skills: React.FC = () => {
-
     const classes = useStyles();
 
     return (
