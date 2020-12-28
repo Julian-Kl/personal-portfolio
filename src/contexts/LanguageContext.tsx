@@ -1,19 +1,32 @@
 import { createContext } from 'react';
 
 interface Dictionary {
-    contactButton: string,
-    about: string,
-    skillSection1: {
-      title: string
-      skills: string[],
-      levels: number[]
+  "contactButton": string,
+  "about": string,
+  "skillCards": {
+    "one": {
+      "title": string,
+      "skills": string[],
+      "levels": number[]
+    },
+    "two": {
+      "title": string,
+      "skills": string[],
+      "levels": number[]
+    },
+    "three": {
+      "title": string,
+      "skills": string[],
+      "levels": number[]
+
     }
+  }
 }
 
 interface LanguageContext {
-    userLanguage: 'en' | 'de',
-    setUserLanguage: Function,
-    dictionary: Dictionary
+  userLanguage: 'en' | 'de',
+  setUserLanguage: Function,
+  dictionary: Dictionary
 }
 
 export const LanguageContext = createContext<LanguageContext | null>(null);

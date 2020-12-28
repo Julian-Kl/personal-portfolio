@@ -1,9 +1,21 @@
 {
     "contactButton": "Kontakt",
     "about": "Online Medien Generalist spezalisiert auf Front-End Entwicklung",
-    "skillSection1": {
-        "title": "Programmieren",
-        "skills": ["JavaScript", "TypeScript"],
-        "levels": [4, 2]
+    "skillCards": {
+        "one": {
+            "title": "Web Entwicklung",
+            "skills": ["HTML", "SCSS & CSS", "JavaScript", "TypeScript", "PHP", "React", "Bootstrap", "Material-UI", "Git/Github", "RestAPI"],
+            "levels": [4, 3, 4, 2, 3, 4, 5, 4, 3, 4]
+        },
+        "two": {
+            "title": "Design & Medien",
+            "skills": ["Adobe Premiere", "Adobe Photoshop", "Affinity Designer", "Logic Pro X", "Wordpress", "Facebook Ads Manager", "Google Ads Manager"],
+            "levels": [3, 2, 4, 5, 4, 4, 2]
+        },
+        "three": {
+            "title": "Office & weitere",
+            "skills": ["MS Word", "MS Excel", "MS Powerpoint", "Social Media", "SEO", "Projektmanagement"],
+            "levels": [4, 3, 4, 4, 4, 4]
+        }
     }
 }

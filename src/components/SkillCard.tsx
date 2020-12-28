@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
@@ -14,6 +14,57 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
+import { LanguageContext } from '../contexts/LanguageContext';
+
+/*
+function Skill(props: Props) {
+  const divider = (value: string) => {
+    if (props.skills.indexOf(value) < props.skills.length) {
+      return (<Divider />);
+    }
+  }
+
+  return (
+    props.skills.map((value) =>
+      <React.Fragment>
+        <ListItem>
+          <ListItemText
+            primary={value}
+          />
+          <Brightness1Icon color="primary" />
+          <Brightness1Icon color="primary" />
+          <Brightness1Icon color="primary" />
+          <RadioButtonUncheckedIcon color="primary" />
+          <RadioButtonUncheckedIcon color="primary" />
+        </ListItem>
+        {divider(value)}
+      </React.Fragment>
+    ));
+}
+
+interface Props {
+  skills: string[],
+  levels: number[]
+}
+*/
+
+const Checked: React.FC = () => {
+  return <Brightness1Icon color="primary" />;
+}
+
+const Unchecked: React.FC = () => {
+  return <RadioButtonUncheckedIcon color="primary" />;
+}
+
+interface SkillCard {
+  skill: 'one' | 'two' | 'three'
+}
+
+interface Data {
+  title: string,
+  skills: string[],
+  levels: number[]
+}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,31 +75,59 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-interface Props {
-  title: string,
-  skills: string[],
-  levels: number[]
-}
-
-export const SkillCard: React.FC<Props> = (props) => {
+export const SkillCard: React.FC<SkillCard> = (props) => {
   const classes = useStyles();
 
-  console.log(props);
+  const languageContext = useContext(LanguageContext);
 
-  function generate() {
-    return [0, 1, 2].map((value) =>
+  let data: Data;
+  switch (props.skill) {
+    case "one":
+      data = languageContext?.dictionary.skillCards.one!;
+      break;
+    case "two":
+      data = languageContext?.dictionary.skillCards.two!;
+      break;
+    case "three":
+      data = languageContext?.dictionary.skillCards.three!;
+      break;
+  }
+
+  const title = data.title;
+
+  const generateLevel = (key: number) => {
+
+    const levelDisplay = [];
+
+    for (let i = 0; i <= 4; i++) {
+      if (i < data.levels[key]) {
+        levelDisplay[i] = <Brightness1Icon color="primary" />;
+      } else {
+        levelDisplay[i] = <RadioButtonUncheckedIcon color="primary" />;
+      }
+    }
+
+    return levelDisplay;
+  }
+
+  const generateDivider = (key: number) => {
+    if((key + 1) < data.skills.length){
+      return (<Divider />);
+    } else {
+      return null;
+    }
+  }
+
+  const generateSkill = () => {
+    return data.skills.map((value) =>
       <React.Fragment>
         <ListItem>
           <ListItemText
-            primary="TypeScript"
+            primary={value}
           />
-          <Brightness1Icon color="primary" />
-          <Brightness1Icon color="primary" />
-          <Brightness1Icon color="primary" />
-          <RadioButtonUncheckedIcon color="primary" />
-          <RadioButtonUncheckedIcon color="primary" />
+          {generateLevel(data.skills.indexOf(value))}
         </ListItem>
-        <Divider />
+        {generateDivider(data.skills.indexOf(value))}
       </React.Fragment>
     );
   }
@@ -58,11 +137,11 @@ export const SkillCard: React.FC<Props> = (props) => {
       <Paper elevation={3}>
         <Box pt={2}>
           <Typography variant="h4" component="h2" align="center">
-            {props.title}
+            {title}
           </Typography>
         </Box>
         <List>
-          {generate()}
+          {generateSkill()}
         </List>
       </Paper>
     </div>

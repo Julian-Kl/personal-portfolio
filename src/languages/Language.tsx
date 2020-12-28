@@ -5,19 +5,43 @@ interface dictionaryList {
   en: {
     "contactButton": string,
     "about": string,
-    "skillSection1": {
-      "title": string
-      "skills": string[],
-      "levels": number[]
+    "skillCards": {
+      "one": {
+        "title": string,
+        "skills": string[],
+        "levels": number[]
+      },
+      "two": {
+        "title": string,
+        "skills": string[],
+        "levels": number[]
+      },
+      "three": {
+        "title": string,
+        "skills": string[],
+        "levels": number[]
+      }
     }
   },
   de: {
     "contactButton": string,
     "about": string,
-    "skillSection1": {
-      "title": string
-      "skills": string[],
-      "levels": number[]
+    "skillCards": {
+      "one": {
+        "title": string,
+        "skills": string[],
+        "levels": number[]
+      },
+      "two": {
+        "title": string,
+        "skills": string[],
+        "levels": number[]
+      },
+      "three": {
+        "title": string,
+        "skills": string[],
+        "levels": number[]
+      }
     }
   }
 }

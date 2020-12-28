@@ -1,9 +1,21 @@
 {
     "contactButton": "Contact",
     "about": "Online media generalist specialized in front end development",
-    "skillSection1": {
-        "title": "Programming",
-        "skills": ["JavaScript", "TypeScript"],
-        "levels": [4, 2]
+    "skillCards": {
+        "one": {
+            "title": "Web Development",
+            "skills": ["HTML", "SCSS & CSS", "JavaScript", "TypeScript", "PHP", "React", "Bootstrap", "Material-UI", "Git/Github", "RestAPI"],
+            "levels": [4, 3, 4, 2, 3, 4, 5, 4, 3, 4]
+        },
+        "two": {
+            "title": "Design & Media",
+            "skills": ["Adobe Premiere", "Adobe Photoshop", "Affinity Designer", "Logic Pro X", "Wordpress", "Facebook Ads Manager", "Google Ads Manager"],
+            "levels": [3, 2, 3, 5, 4, 4, 2]
+        },
+        "three": {
+            "title": "Office & other",
+            "skills": ["MS Word", "MS Excel", "MS Powerpoint", "Social Media", "SEO", "Project Management"],
+            "levels": [4, 3, 4, 4, 4, 4]
+        }
     }
 }
