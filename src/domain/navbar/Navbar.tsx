@@ -14,6 +14,7 @@ import Brightness4Icon from '@material-ui/icons/Brightness4';
 import TranslateIcon from '@material-ui/icons/Translate';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { LanguageContext } from '../../contexts/LanguageContext';
+import { ContactButton } from '../../components/ContactButton';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,6 +42,11 @@ const useStyles = makeStyles((theme: Theme) =>
         width: '20ch',
       }
     },
+    contactButton: {
+      [theme.breakpoints.up('lg')]: {
+        display: 'none'
+      }
+    }
   }),
 );
 
@@ -70,8 +76,8 @@ export const Navbar: React.FC = () => {
   };
 
   const changeTheme = () => {
-    if(themeContext){
-      if(themeContext.theme === 'dark'){
+    if (themeContext) {
+      if (themeContext.theme === 'dark') {
         setThemeToggle(false)
         themeContext.setTheme('light')
       } else {
@@ -84,8 +90,8 @@ export const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
-    if(themeContext){
-      if(themeContext.theme === 'dark'){
+    if (themeContext) {
+      if (themeContext.theme === 'dark') {
         setThemeToggle(false)
       } else {
         setThemeToggle(true)
@@ -96,7 +102,7 @@ export const Navbar: React.FC = () => {
   });
 
   let languageLabel = 'Language';
-  if (languageContext?.userLanguage === 'en'){
+  if (languageContext?.userLanguage === 'en') {
     languageLabel = 'English';
   } else {
     languageLabel = 'Deutsch';
@@ -104,6 +110,15 @@ export const Navbar: React.FC = () => {
 
   const changeLanguage = (props: string) => {
     languageContext?.setUserLanguage(props)
+  }
+
+  const renderContactButton = () => {
+
+    return (
+      <Box mx="auto" className={classes.contactButton}>
+        <ContactButton />
+      </Box>
+    );
   }
 
   return (
@@ -129,16 +144,17 @@ export const Navbar: React.FC = () => {
           <MenuItem onClick={handleClose}>Portfolio</MenuItem>
           <MenuItem onClick={handleClose}>Contact</MenuItem>
         </Menu>
+        {renderContactButton()}
         <div className={classes.grow} />
-          <Brightness4Icon onClick={changeTheme} />
-          <FormControl>
-            <Switch
-              color="default"
-              className={classes.collapse}
-              checked={themeToggle}
-              aria-label="theme-switch"
-              onChange={changeTheme} size="medium" />
-          </FormControl>
+        <Brightness4Icon onClick={changeTheme} />
+        <FormControl>
+          <Switch
+            color="default"
+            className={classes.collapse}
+            checked={themeToggle}
+            aria-label="theme-switch"
+            onChange={changeTheme} size="medium" />
+        </FormControl>
         <Box ml="3">
           <Button
             startIcon={<TranslateIcon />}
