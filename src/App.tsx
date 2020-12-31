@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './css/App.scss';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme: Theme) =>
       bottom: '0',
       marginLeft: 'auto',
       marginRight: 'auto'
+    },
+    site: {
+      height: '100vh',
     }
   }),
 );
@@ -32,22 +35,55 @@ const useStyles = makeStyles((theme: Theme) =>
 const App: React.FC = () => {
   const classes = useStyles();
 
+  const scrollPosition = useRef<number>(0);
+
+  const startRef = useRef<any>(null);
+  const skillsRef = useRef<any>(null);
+
+  const motionRef = useRef<boolean>(false);
+
+  const scroll = () => {
+    let container = document.getElementById('scroll-container')!;
+
+    setTimeout(() => {
+      if (container.scrollTop < scrollPosition.current) {
+        console.log("Scroll nach oben");
+        if (startRef.current) {
+          startRef.current.scrollIntoView({behaviour: 'smooth'});
+          motionRef.current = false;
+        }
+      } else if (container.scrollTop > scrollPosition.current) {
+        console.log("Scroll nach unten");
+        if (skillsRef.current) {
+          skillsRef.current.scrollIntoView({behaviour: 'smooth'});
+        }
+      }
+      setTimeout(() => {
+        scrollPosition.current = container.scrollTop;
+      }, 101)
+    
+    }, 100);
+  }
+
+
   return (
     <div className={classes.siteContainter}>
       <Router>
-      <Navbar />
-      <div className={classes.scrollContainer}>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/skills">
-          <Skills />
-        </Route>
-      </div>
-      <BottomNav>
-        <ContactButton />
-      </BottomNav>
-    </Router>
+        <Navbar />
+        <div id="scroll-container" className={classes.scrollContainer} onScroll={scroll}>
+          <div id="scroll-content">
+            <div ref={startRef} className={classes.site}>
+              <About />
+            </div>
+            <div ref={skillsRef} className={classes.site}>
+              <Skills />
+            </div>
+          </div>
+        </div>
+        <BottomNav>
+          <ContactButton />
+        </BottomNav>
+      </Router>
     </div>
   );
 }

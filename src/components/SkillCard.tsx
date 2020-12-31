@@ -99,7 +99,7 @@ export const SkillCard: React.FC<SkillCard> = (props) => {
     <div className={classes.root}>
       <Paper elevation={3}>
         <Box pt={2}>
-          <Typography variant="h4" component="h2" align="center">
+          <Typography variant="h4" component="h3" align="center">
             {title}
           </Typography>
         </Box>
