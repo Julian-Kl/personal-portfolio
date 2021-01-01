@@ -46,13 +46,13 @@ export const SkillCard: React.FC<SkillCard> = (props) => {
   let data: Data;
   switch (props.skill) {
     case "one":
-      data = languageContext?.dictionary.skillCards.one!;
+      data = languageContext?.dictionary.skills.skillCards.one!;
       break;
     case "two":
-      data = languageContext?.dictionary.skillCards.two!;
+      data = languageContext?.dictionary.skills.skillCards.two!;
       break;
     case "three":
-      data = languageContext?.dictionary.skillCards.three!;
+      data = languageContext?.dictionary.skills.skillCards.three!;
       break;
   }
 

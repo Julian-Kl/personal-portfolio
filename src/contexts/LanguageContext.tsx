@@ -1,26 +1,63 @@
 import { createContext } from 'react';
 
 interface Dictionary {
-  "contactButton": string,
-  "about": string,
-  "skillCards": {
-    "one": {
+    "contactButton": string,
+    "start": {
       "title": string,
-      "skills": string[],
-      "levels": number[]
+      "headline": string,
+      "description": string
     },
-    "two": {
+    "about": {
       "title": string,
-      "skills": string[],
-      "levels": number[]
+      "description": string,
+      "stations": {
+        "titles": string[],
+        "companies": string[],
+        "durations": string[],
+        "locations": string[],
+        "icons": string[],
+        "link": string[],
+        "infos": object
+      }
     },
-    "three": {
+    "skills": {
       "title": string,
-      "skills": string[],
-      "levels": number[]
-
+      "skillCards": {
+        "one": {
+          "title": string,
+          "skills": string[],
+          "levels": number[]
+        },
+        "two": {
+          "title": string,
+          "skills": string[],
+          "levels": number[]
+        },
+        "three": {
+          "title": string,
+          "skills": string[],
+          "levels": number[]
+        }
+      }
+    },
+    "portfolio": {
+      "title": string,
+      "projects": {
+        "titles": string[],
+        "descriptions": string[],
+        "liveLinks": string[],
+        "githubLinks": string[]
+      }
+    },
+    "contact": {
+      "title": string,
+      "mail": string,
+      "telephone": string
+    },
+    "legal notice": {
+      "title": string,
+      "information": string
     }
-  }
 }
 
 interface LanguageContext {

@@ -62,12 +62,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 
-export const About: React.FC = () => {
+export const Start: React.FC = () => {
   const classes = useStyles();
 
   const languageContext = useContext(LanguageContext);
 
-  const about = languageContext?.dictionary.about;
+  const headline = languageContext?.dictionary.start.headline;
+  const description = languageContext?.dictionary.start.description;
 
   return (
     <React.Fragment>
@@ -75,10 +76,10 @@ export const About: React.FC = () => {
         <Box m={1} p={1}>
           <Box className={classes.textBox}>
             <Typography component="h1" variant="h1" color="textPrimary" className={classes.headline}>
-              Julian Klummer
+              {headline}
             </Typography>
             <Typography component="p" variant="body2" color="textPrimary" className={classes.text}>
-              {about}
+              {description}
             </Typography>
           </Box>
         </Box>

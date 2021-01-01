@@ -16,6 +16,10 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { ContactButton } from '../../components/ContactButton';
 
+interface Props {
+  navigation: (target: string) => any
+}
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     grow: {
@@ -50,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC<Props> = (props) => {
   const classes = useStyles();
   const [anchorMainMenu, setAnchorMainMenu] = React.useState<null | HTMLElement>(null);
   const [anchorLanguageMenu, setLanguageMenu] = React.useState<null | HTMLElement>(null);
@@ -58,6 +62,12 @@ export const Navbar: React.FC = () => {
 
   const themeContext = useContext(ThemeContext);
   const languageContext = useContext(LanguageContext);
+
+  const itemOne = languageContext?.dictionary.start.title!;
+  const itemTwo = languageContext?.dictionary.about.title!;
+  const itemThree = languageContext?.dictionary.skills.title!;
+  const itemFour = languageContext?.dictionary.portfolio.title!;
+  const itemFive = languageContext?.dictionary.contact.title!;
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     let target = event.currentTarget.getAttribute('aria-controls');
@@ -139,10 +149,11 @@ export const Navbar: React.FC = () => {
           open={Boolean(anchorMainMenu)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>About</MenuItem>
-          <MenuItem onClick={handleClose}>Skills</MenuItem>
-          <MenuItem onClick={handleClose}>Portfolio</MenuItem>
-          <MenuItem onClick={handleClose}>Contact</MenuItem>
+          <MenuItem onClick={handleClose}>{itemOne}</MenuItem>
+          <MenuItem onClick={handleClose}>{itemTwo}</MenuItem>
+          <MenuItem onClick={handleClose}>{itemThree}</MenuItem>
+          <MenuItem onClick={handleClose}>{itemFour}</MenuItem>
+          <MenuItem onClick={handleClose}>{itemFive}</MenuItem>
         </Menu>
         {renderContactButton()}
         <div className={classes.grow} />

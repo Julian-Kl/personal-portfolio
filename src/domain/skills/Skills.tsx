@@ -4,23 +4,28 @@ import { SkillCard } from '../../components/SkillCard';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import { Typography } from '@material-ui/core';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
-        }
+        },
     }),
 );
 
 export const Skills: React.FC = () => {
     const classes = useStyles();
 
+    const languageContext = useContext(LanguageContext);
+
+    const title = languageContext?.dictionary.skills.title!;
+
     return (
         <Box m={4}>
             <div className={classes.root}>
                 <Box mb={3}>
-                    <Typography component="h2" variant="h2" color="textPrimary">Skills</Typography>
+                    <Typography component="h2" variant="h1" color="textPrimary">{title}</Typography>
                 </Box>
                 <Grid container spacing={6} justify="center">
                     <Grid item lg={4} md={5} sm={6} xs={10}>
