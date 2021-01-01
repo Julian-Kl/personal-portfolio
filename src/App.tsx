@@ -47,7 +47,7 @@ const App: React.FC = () => {
   const contactRef = useRef<any>(null);
 
 
-  const navigation = (target: string) => {
+  const navigation = (target: "start" | "about" | "skills" | "portfolio" | "contact" ) => {
     switch(target){
       case "start": {
         startRef.current.scrollIntoView({ behaviour: 'smooth' });
@@ -136,7 +136,7 @@ const App: React.FC = () => {
             <div ref={aboutRef} className={classes.site}>
               <p>About</p>
             </div>
-            <div ref={startRef} className={classes.site}>
+            <div ref={skillsRef} className={classes.site}>
               <Skills />
             </div>
             <div ref={portfolioRef} className={classes.site}>
@@ -148,7 +148,7 @@ const App: React.FC = () => {
           </div>
         </div>
         <BottomNav>
-          <ContactButton />
+          <ContactButton navigation={navigation} />
         </BottomNav>
       </Router>
     </div>

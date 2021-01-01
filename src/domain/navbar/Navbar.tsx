@@ -17,7 +17,7 @@ import { LanguageContext } from '../../contexts/LanguageContext';
 import { ContactButton } from '../../components/ContactButton';
 
 interface Props {
-  navigation: (target: string) => any
+  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact") => any
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -126,7 +126,7 @@ export const Navbar: React.FC<Props> = (props) => {
 
     return (
       <Box mx="auto" className={classes.contactButton}>
-        <ContactButton />
+        <ContactButton navigation={props.navigation} />
       </Box>
     );
   }
@@ -149,11 +149,26 @@ export const Navbar: React.FC<Props> = (props) => {
           open={Boolean(anchorMainMenu)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>{itemOne}</MenuItem>
-          <MenuItem onClick={handleClose}>{itemTwo}</MenuItem>
-          <MenuItem onClick={handleClose}>{itemThree}</MenuItem>
-          <MenuItem onClick={handleClose}>{itemFour}</MenuItem>
-          <MenuItem onClick={handleClose}>{itemFive}</MenuItem>
+          <MenuItem onClick={() => {
+            handleClose();
+            props.navigation("start");
+          }}>{itemOne}</MenuItem>
+          <MenuItem onClick={() => {
+            handleClose();
+            props.navigation("about");
+          }}>{itemTwo}</MenuItem>
+          <MenuItem onClick={() => {
+            handleClose();
+            props.navigation("skills");
+          }}>{itemThree}</MenuItem>
+          <MenuItem onClick={() => {
+            handleClose();
+            props.navigation("portfolio");
+          }}>{itemFour}</MenuItem>
+          <MenuItem onClick={() => {
+            handleClose();
+            props.navigation("contact");
+          }}>{itemFive}</MenuItem>
         </Menu>
         {renderContactButton()}
         <div className={classes.grow} />
