@@ -81,7 +81,7 @@ export function getTheme(theme: themeModeSpecifics) {
       },
       body2: {
         fontFamily: "Cosima, Impact",
-        fontWeight: 300
+        fontWeight: 400
       },
       button: {
         fontFamily: "Cosima, Impact",

@@ -13,13 +13,33 @@ interface dictionaryList {
       "title": string,
       "description": string,
       "stations": {
-        "titles": string[],
-        "companies": string[],
-        "durations": string[],
-        "locations": string[],
-        "icons": string[],
-        "link": string[],
-        "infos": object
+        "one": {
+          title: string,
+          institution: string,
+          duration: string,
+          location: string,
+          icon: string,
+          link: string,
+          infos: string[]
+        },
+        "two": {
+          title: string,
+          institution: string,
+          duration: string,
+          location: string,
+          icon: string,
+          link: string,
+          infos: string[]
+        },
+        "three": {
+          title: string,
+          institution: string,
+          duration: string,
+          location: string,
+          icon: string,
+          link: string,
+          infos: string[]
+        }
       }
     },
     "skills": {
@@ -72,13 +92,33 @@ interface dictionaryList {
       "title": string,
       "description": string,
       "stations": {
-        "titles": string[],
-        "companies": string[],
-        "durations": string[],
-        "locations": string[],
-        "icons": string[],
-        "link": string[],
-        "infos": object
+        "one": {
+          title: string,
+          institution: string,
+          duration: string,
+          location: string,
+          icon: string,
+          link: string,
+          infos: string[]
+        },
+        "two": {
+          title: string,
+          institution: string,
+          duration: string,
+          location: string,
+          icon: string,
+          link: string,
+          infos: string[]
+        },
+        "three": {
+          title: string,
+          institution: string,
+          duration: string,
+          location: string,
+          icon: string,
+          link: string,
+          infos: string[]
+        }
       }
     },
     "skills": {

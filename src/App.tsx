@@ -6,6 +6,7 @@ import { Navbar } from './domain/navbar/Navbar';
 import { BottomNav } from './domain/bottomnav/BottomNav';
 import { ContactButton } from './components/ContactButton';
 import { Start } from './domain/start/Start';
+import { About } from './domain/about/About';
 import { Skills } from './domain/skills/Skills';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,12 +28,9 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: 'auto'
     },
     site: {
-      height: '100vh',
-    },
-    skills: {
-      height: '100vh',
+      minHeight: '100vh',
     }
-  }),
+  })
 );
 
 const App: React.FC = () => {
@@ -134,7 +132,7 @@ const App: React.FC = () => {
               <Start />
             </div>
             <div ref={aboutRef} className={classes.site}>
-              <p>About</p>
+              <About/>
             </div>
             <div ref={skillsRef} className={classes.site}>
               <Skills />
