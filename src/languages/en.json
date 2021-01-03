@@ -59,13 +59,7 @@
         }
     },
     "portfolio": {
-        "title": "Portfolio",
-        "projects": {
-          "titles": ["SmartShopping", "Kick Off 2020"],
-          "descriptions": ["A smart shopping card that gives personalized search results based on the consumers preferences.", "Landingpage for a cross media campaign for the study kick off 2020 of our new freshman"],
-          "liveLinks": ["https://smartshopping.team5.uber.space/", "https://kickoff2020.juliankl.uber.space/"],
-          "githubLinks": ["https://github.com/Julian-Kl/smartshoppingfrontend", "https://github.com/Julian-Kl/kickoff-2020-landingpage"]
-        }
+        "title": "Projects"
     },
     "contact": {
         "title": "Contact",

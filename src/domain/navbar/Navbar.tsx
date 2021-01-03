@@ -12,6 +12,7 @@ import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import TranslateIcon from '@material-ui/icons/Translate';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { ContactButton } from '../../components/ContactButton';
@@ -170,6 +171,9 @@ export const Navbar: React.FC<Props> = (props) => {
             props.navigation("contact");
           }}>{itemFive}</MenuItem>
         </Menu>
+        <IconButton aria-label="Open Website" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170">
+          <LinkedInIcon fontSize="large" />
+        </IconButton>
         {renderContactButton()}
         <div className={classes.grow} />
         <Brightness4Icon onClick={changeTheme} />

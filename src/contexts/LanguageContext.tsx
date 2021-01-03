@@ -61,13 +61,7 @@ interface Dictionary {
       }
     },
     "portfolio": {
-      "title": string,
-      "projects": {
-        "titles": string[],
-        "descriptions": string[],
-        "liveLinks": string[],
-        "githubLinks": string[]
-      }
+      "title": string
     },
     "contact": {
       "title": string,

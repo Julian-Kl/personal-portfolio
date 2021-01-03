@@ -4,11 +4,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import { Typography } from '@material-ui/core';
 import { LanguageContext } from '../../contexts/LanguageContext';
-import { GridListTile } from '@material-ui/core';
-import { GridListTileBar } from '@material-ui/core';
-import { IconButton } from '@material-ui/core';
 import { StationCard } from '../../components/StationCard';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 
 const useStyles = makeStyles((theme: Theme) =>

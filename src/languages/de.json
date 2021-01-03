@@ -1,5 +1,5 @@
 {
-    "contactButton": "Contact",
+    "contactButton": "Kontakt",
     "start": {
         "title": "Start",
         "headline": "Julian Klummer",
@@ -59,13 +59,7 @@
         }
     },
     "portfolio": {
-        "title": "Portfolio",
-        "projects": {
-          "titles": ["SmartShopping", "Kick Off 2020"],
-          "descriptions": ["Eine intelligente Einkaufliste mit personalisierten Suchergebnissen basierend auf Benutzerpräferenzen", "Landingpage für eine cross-mediale Kampagne für den Studiums Kick Off 2020 unserer neuen Ersties"],
-          "liveLinks": ["https://smartshopping.team5.uber.space/", "https://kickoff2020.juliankl.uber.space/"],
-          "githubLinks": ["https://github.com/Julian-Kl/smartshoppingfrontend", "https://github.com/Julian-Kl/kickoff-2020-landingpage"]
-        }
+        "title": "Projekte"
     },
     "contact": {
         "title": "Kontakt",

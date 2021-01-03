@@ -7,31 +7,21 @@ import Box from '@material-ui/core/Box';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { LanguageContext } from '../contexts/LanguageContext';
-import { Button } from '@material-ui/core';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import SchoolIcon from '@material-ui/icons/School';
 import WorkIcon from '@material-ui/icons/Work';
 import Divider from '@material-ui/core/Divider';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import EventIcon from '@material-ui/icons/Event';
-
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import RemoveIcon from '@material-ui/icons/Remove';
 
 
 interface Props {

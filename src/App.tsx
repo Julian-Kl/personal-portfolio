@@ -8,6 +8,8 @@ import { ContactButton } from './components/ContactButton';
 import { Start } from './domain/start/Start';
 import { About } from './domain/about/About';
 import { Skills } from './domain/skills/Skills';
+import { Portfolio } from './domain/portfolio/Portfolio';
+import { Contact } from './domain/contact/Contact';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -138,10 +140,10 @@ const App: React.FC = () => {
               <Skills />
             </div>
             <div ref={portfolioRef} className={classes.site}>
-              <p>Portfolio</p>
+              <Portfolio />
             </div>
             <div ref={contactRef} className={classes.site}>
-              <p>Contact</p>
+              <Contact />
             </div>
           </div>
         </div>
