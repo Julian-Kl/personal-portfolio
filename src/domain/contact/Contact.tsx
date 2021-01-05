@@ -4,7 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -51,6 +50,7 @@ export const Contact: React.FC = () => {
                                         </ListItemIcon>
                                         <ListItemText primary={mail} />
                                     </ListItem>
+                                    <Divider />
                                     <ListItem>
                                         <ListItemIcon>
                                             <PhoneIcon fontSize="small" />
@@ -59,9 +59,6 @@ export const Contact: React.FC = () => {
                                     </ListItem>
                                 </List>
                             </CardContent>
-                            <Divider />
-                            <CardActions disableSpacing>
-                            </CardActions>
                         </Card>
                     </Paper>
                 </Grid>

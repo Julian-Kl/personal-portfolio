@@ -7,7 +7,9 @@
     },
     "about": {
         "title": "About",
-        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et",
+        "description": ["My enthusiasm for web technologies and programming  began during my online media management studies. In the past seven semesters, I explored the interplay of technology, media and management that make modern web applications possible.",
+            "Beyond my studies, I deepened my knowledge of programming languages like PHP, JavaScript and TypeScript and got familiar with React and APIs.",
+            "Another passion of mine is music and event management. Since 2018 I have been organizing events with my agency inPulse. I was able to dive deeper into the world of graphic design and content creation through various marketing champagnes for these events. This trained my eye for good design."],
         "stations": {
             "one": {
                 "title": "BACHELOR OF ARTS: ONLINE-MEDIEN-MANAGEMENT",

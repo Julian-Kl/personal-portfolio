@@ -14,7 +14,12 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         img: {
             width: '100%',
-            height: 'auto'
+            height: 'auto',
+            borderRadius: '50%',
+            overflow: 'hidden'
+        },
+        typo: {
+            marginBottom: 20
         }
     }),
 );
@@ -39,8 +44,14 @@ export const About: React.FC = () => {
                         <img src="https://via.placeholder.com/300" alt="Julian Klummer" className={classes.img}></img>
                     </Grid>
                     <Grid item lg={4} md={5} sm={10} xs={10}>
-                        <Typography component="p" variant="body1" color="textPrimary">
-                            {description}
+                        <Typography component="p" variant="body1" color="textPrimary" className={classes.typo}>
+                            {description[0]}
+                        </Typography>
+                        <Typography component="p" variant="body1" color="textPrimary" className={classes.typo}>
+                            {description[1]}
+                        </Typography>
+                        <Typography component="p" variant="body1" color="textPrimary" className={classes.typo}>
+                            {description[2]}
                         </Typography>
                     </Grid>
                     <Grid item lg={5} md={10} sm={10} xs={10}>

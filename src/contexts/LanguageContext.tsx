@@ -9,7 +9,7 @@ interface Dictionary {
     },
     "about": {
       "title": string,
-      "description": string,
+      "description": string[],
       "stations": {
         "one": {
           title: string,

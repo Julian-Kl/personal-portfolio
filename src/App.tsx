@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import './css/App.scss';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Navbar } from './domain/navbar/Navbar';
 import { BottomNav } from './domain/bottomnav/BottomNav';
@@ -38,14 +37,11 @@ const useStyles = makeStyles((theme: Theme) =>
 const App: React.FC = () => {
   const classes = useStyles();
 
-  const scrollPosition = useRef<number>(0);
-
   const startRef = useRef<any>(null);
   const aboutRef = useRef<any>(null);
   const skillsRef = useRef<any>(null);
   const portfolioRef = useRef<any>(null);
   const contactRef = useRef<any>(null);
-
 
   const navigation = (target: "start" | "about" | "skills" | "portfolio" | "contact" ) => {
     switch(target){
@@ -72,63 +68,10 @@ const App: React.FC = () => {
     }
   }
 
-  /*
-  const scroll = () => {
-    let container = document.getElementById('scroll-container')!;
-
-    setTimeout((e) => {
-      if (container.scrollTop < scrollPosition.current) {
-        console.log("Scroll nach oben");
-        if (startRef.current) {
-          startRef.current.scrollIntoView({ behaviour: 'smooth' });
-        }
-      } else if (container.scrollTop > scrollPosition.current) {
-        console.log("Scroll nach unten");
-        if (skillsRef.current) {
-          skillsRef.current.scrollIntoView({ behaviour: 'smooth' });
-        }
-      }
-      setTimeout(() => {
-        scrollPosition.current = container.scrollTop;
-      }, 101)
-
-    }, 100);
-  }
-*/
-
-
-  const handleScroll = (e: { target: any; }) => {
-    console.log("scroll")
-    let element = e.target
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      console.log("bottom")
-
-
-      setTimeout((e) => {
-        if (element.scrollTop < scrollPosition.current) {
-          console.log("Scroll nach oben");
-          if (startRef.current) {
-            startRef.current.scrollIntoView({ behaviour: 'smooth' });
-          }
-        } else if (element.scrollTop > scrollPosition.current) {
-          console.log("Scroll nach unten");
-          if (skillsRef.current) {
-            skillsRef.current.scrollIntoView({ behaviour: 'smooth' });
-          }
-        }
-        setTimeout(() => {
-          scrollPosition.current = element.scrollTop;
-        }, 101)
-      }, 100);
-    }
-  }
-
-
   return (
     <div className={classes.siteContainter}>
-      <Router>
         <Navbar navigation={navigation} />
-        <div id="scroll-container" className={classes.scrollContainer} onScroll={handleScroll}>
+        <div id="scroll-container" className={classes.scrollContainer}>
           <div id="scroll-content">
             <div ref={startRef} className={classes.site}>
               <Start />
@@ -150,7 +93,6 @@ const App: React.FC = () => {
         <BottomNav>
           <ContactButton navigation={navigation} />
         </BottomNav>
-      </Router>
     </div>
   );
 }

@@ -77,7 +77,7 @@ export const Portfolio: React.FC = () => {
         image: IMGKickOff2020,
         title: "Kick Off 2020",
         description: "Landingpage for a cross media campaign for the study kick off 2020 of our new freshman",
-        liveLink: "https://kickoff2020.juliankl.uber.space/",
+        liveLink: "http://kickoff2020.paesure.com/",
         githubLink: "https://github.com/Julian-Kl/kickoff-2020-landingpage"
       }
     ]
@@ -101,7 +101,7 @@ export const Portfolio: React.FC = () => {
         image: IMGKickOff2020,
         title: "Kick Off 2020",
         description: "Landingpage für eine cross-mediale Kampagne für den Studiums Kick Off 2020 unserer neuen Ersties",
-        liveLink: "https://kickoff2020.juliankl.uber.space/",
+        liveLink: "http://kickoff2020.paesure.com/",
         githubLink: "https://github.com/Julian-Kl/kickoff-2020-landingpage"
       }
     ]
@@ -117,7 +117,7 @@ export const Portfolio: React.FC = () => {
         <Grid container spacing={6} justify="center">
           <Grid item lg={1} md={5} sm={1} xs={2}>
             <IconButton aria-label="back" className={classes.navButton} onClick={() => {
-              scrollContainer.current.scrollBy({ top: 0, left: -200, behavior: "smooth" });
+              scrollContainer.current.scrollBy({ top: 0, left: -260, behavior: "smooth" });
             }}>
               <ArrowBackIosIcon />
             </IconButton>
@@ -157,7 +157,7 @@ export const Portfolio: React.FC = () => {
           </Grid>
           <Grid item lg={1} md={1} sm={1} xs={2}>
             <IconButton aria-label="back" className={classes.navButton} onClick={() => {
-              scrollContainer.current.scrollBy({ top: 0, left: 200, behavior: "smooth" });
+              scrollContainer.current.scrollBy({ top: 0, left: 260, behavior: "smooth" });
             }}>
               <ArrowForwardIosIcon />
             </IconButton>

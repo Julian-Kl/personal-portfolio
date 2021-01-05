@@ -11,7 +11,7 @@ interface dictionaryList {
     },
     "about": {
       "title": string,
-      "description": string,
+      "description": string[],
       "stations": {
         "one": {
           title: string,
@@ -84,7 +84,7 @@ interface dictionaryList {
     },
     "about": {
       "title": string,
-      "description": string,
+      "description": string[],
       "stations": {
         "one": {
           title: string,

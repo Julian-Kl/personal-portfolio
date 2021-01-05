@@ -7,7 +7,9 @@
     },
     "about": {
         "title": "Über",
-        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et",
+        "description": ["Meine Begeisterung für Web Technologien und Programmierung entdeckte ich im Laufe meines Online Medien Management Studiums. In meinen vergangenen sieben Semestern erschloss ich mir das Zusammenspiel von Technik, Medien und Management, welche moderne Webanwendungen ermöglichen.",
+        "Über das Studium hinaus vertiefte ich in meiner Freizeit autodidaktisch meine Kenntnisse in Programmiersprachen wie PHP, JavaScript und TypeScript und setzte mich mit React und APIs auseinander.",
+        "Meine zweite Leidenschaft ist die Musik und damit verbunden das Event-Management. Seit 2018 organisiere ich nebenberuflich Veranstaltungen. Durch diverse Marketingmaßnahmen bei dieser Arbeit konnte ich auch in die Welt des Graphik Designs und der Content Kreation tiefer eintauchen und mein Auge für Design schulen."],
         "stations": {
             "one": {
                 "title": "BACHELOR OF ARTS: ONLINE-MEDIEN-MANAGEMENT",
@@ -16,7 +18,7 @@
                 "location": "Stuttgart",
                 "icon": "SchoolIcon",
                 "link": "https://www.omm.hdm-stuttgart.de/",
-                "infos": ["Online Technologien, Webdesign & Entwicklung", "Digital Marketing & Data Analytics", "Digital Content Erstellung"]
+                "infos": ["Online Technologien, Webdesign & Entwicklung", "Usability & User Experience Design", "Digital Marketing & Data Analytics", "Digital Content Erstellung"]
             },
             "two": {
                 "title": "SELSBSTÄNDIG IM BEREICH EVENT-MANAGEMENT",
