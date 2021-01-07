@@ -189,7 +189,7 @@ export const Navbar: React.FC<Props> = (props) => {
           style={{ transformOrigin: '0 0 0' }}
           {... { timeout: 1500 }}
         >
-          <IconButton aria-label="Open Website" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170">
+          <IconButton className={classes.collapse} aria-label="Open Website" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170">
             <LinkedInIcon fontSize="large" />
           </IconButton>
         </Grow>

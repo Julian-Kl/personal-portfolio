@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         typo: {
             marginBottom: 20
+        },
+        headline: {
+            [theme.breakpoints.down('sm')]: {
+              fontSize: '4em',
+            }
         }
     }),
 );
@@ -37,13 +42,13 @@ export const About: React.FC = () => {
         <Box m={4}>
             <div className={classes.root}>
                 <Box mb={3}>
-                    <Typography component="h2" variant="h1" color="textPrimary">{title}</Typography>
+                    <Typography component="h2" variant="h1" color="textPrimary" className={classes.headline}>{title}</Typography>
                 </Box>
-                <Grid container spacing={3} justify="flex-start">
-                    <Grid item lg={3} md={5} sm={10} xs={10}>
+                <Grid container spacing={3} justify="center">
+                    <Grid item lg={3} md={5} sm={10} xs={12}>
                         <img src="https://via.placeholder.com/300" alt="Julian Klummer" className={classes.img}></img>
                     </Grid>
-                    <Grid item lg={4} md={5} sm={10} xs={10}>
+                    <Grid item lg={4} md={5} sm={10} xs={12}>
                         <Typography component="p" variant="body1" color="textPrimary" className={classes.typo}>
                             {description[0]}
                         </Typography>
@@ -54,7 +59,7 @@ export const About: React.FC = () => {
                             {description[2]}
                         </Typography>
                     </Grid>
-                    <Grid item lg={5} md={10} sm={10} xs={10}>
+                    <Grid item lg={5} md={10} sm={10} xs={12}>
                         <StationCard station={"one"} />
                         <StationCard station={"two"} />
                         <StationCard station={"three"} />

@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
+        },
+        headline: {
+            [theme.breakpoints.down('sm')]: {
+              fontSize: '4em',
+            }
         }
     }),
 );
@@ -36,10 +41,10 @@ export const Contact: React.FC = () => {
     return (
         <Box m={4}>
             <Box mb={4}>
-                <Typography component="h2" variant="h1" color="textPrimary">{title}</Typography>
+                <Typography component="h2" variant="h1" color="textPrimary" className={classes.headline}>{title}</Typography>
             </Box>
             <div className={classes.root}>
-                <Grid item xs={7}>
+                <Grid item lg={4} md={5} sm={6} xs={12}>
                     <Paper elevation={3}>
                         <Card>
                             <CardContent>

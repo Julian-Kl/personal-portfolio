@@ -36,11 +36,30 @@ const useStyles = makeStyles((theme: Theme) =>
       transform: 'translateZ(0)',
     },
     navButton: {
-      marginTop: 190
+      marginTop: 190,
+      [theme.breakpoints.down('sm')]: {
+        display: 'none'
+      }
+    },
+    smNavigation: {
+      [theme.breakpoints.up('sm')]: {
+        display: 'none'
+      }
     },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
+    },
+    listTile: {
+      minWidth: 320
+    },
+    headline: {
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '4em',
+      }
+    },
+    right: {
+      float: 'right'
     }
   }),
 );
@@ -111,21 +130,21 @@ export const Portfolio: React.FC = () => {
   return (
     <Box m={4}>
       <Box mb={3}>
-        <Typography component="h2" variant="h1" color="textPrimary">{title}</Typography>
+        <Typography component="h2" variant="h1" color="textPrimary" className={classes.headline}>{title}</Typography>
       </Box>
       <div className={classes.root}>
-        <Grid container spacing={6} justify="center">
-          <Grid item lg={1} md={5} sm={1} xs={2}>
+        <Grid container spacing={4} justify="center">
+          <Grid item lg={1} md={1} sm={1} xs={1}>
             <IconButton aria-label="back" className={classes.navButton} onClick={() => {
               scrollContainer.current.scrollBy({ top: 0, left: -260, behavior: "smooth" });
             }}>
               <ArrowBackIosIcon />
             </IconButton>
           </Grid>
-          <Grid item lg={10} md={10} sm={10} xs={8}>
-            <GridList className={classes.gridList} cols={2.5} spacing={50} cellHeight={420} ref={scrollContainer}>
+          <Grid item lg={10} md={10} sm={10} xs={12}>
+            <GridList className={classes.gridList} cols={2.5} spacing={50} cellHeight="auto" ref={scrollContainer}>
               {projects.map((project) => (
-                <GridListTile>
+                <GridListTile className={classes.listTile}>
                   <Card>
                     <CardActionArea href={project.liveLink} target="blank">
                       <CardMedia
@@ -155,8 +174,24 @@ export const Portfolio: React.FC = () => {
               ))}
             </GridList>
           </Grid>
-          <Grid item lg={1} md={1} sm={1} xs={2}>
-            <IconButton aria-label="back" className={classes.navButton} onClick={() => {
+          <Grid item lg={1} md={1} sm={1} xs={1}>
+            <IconButton aria-label="forward" className={classes.navButton} onClick={() => {
+              scrollContainer.current.scrollBy({ top: 0, left: 260, behavior: "smooth" });
+            }}>
+              <ArrowForwardIosIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
+        <Grid container className={classes.smNavigation} spacing={4} justify="center">
+          <Grid item xs={4}>
+            <IconButton aria-label="back" onClick={() => {
+              scrollContainer.current.scrollBy({ top: 0, left: -260, behavior: "smooth" });
+            }}>
+              <ArrowBackIosIcon />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton aria-label="forward" className={classes.right} onClick={() => {
               scrollContainer.current.scrollBy({ top: 0, left: 260, behavior: "smooth" });
             }}>
               <ArrowForwardIosIcon />

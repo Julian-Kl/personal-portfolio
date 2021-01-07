@@ -11,6 +11,11 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             flexGrow: 1,
         },
+        headline: {
+            [theme.breakpoints.down('sm')]: {
+              fontSize: '4em',
+            }
+        }
     }),
 );
 
@@ -25,16 +30,16 @@ export const Skills: React.FC = () => {
         <Box m={4}>
             <div className={classes.root}>
                 <Box mb={3}>
-                    <Typography component="h2" variant="h1" color="textPrimary">{title}</Typography>
+                    <Typography component="h2" variant="h1" color="textPrimary" className={classes.headline}>{title}</Typography>
                 </Box>
                 <Grid container spacing={6} justify="center">
-                    <Grid item lg={4} md={5} sm={6} xs={10}>
+                    <Grid item lg={4} md={5} sm={6} xs={12}>
                         <SkillCard skill={"one"} />
                     </Grid>
-                    <Grid item lg={4} md={5} sm={6} xs={10}>
+                    <Grid item lg={4} md={5} sm={6} xs={12}>
                         <SkillCard skill={"two"} />
                     </Grid>
-                    <Grid item lg={4} md={5} sm={6} xs={10}>
+                    <Grid item lg={4} md={5} sm={6} xs={12}>
                         <SkillCard skill={"three"} />
                     </Grid>
                 </Grid>
