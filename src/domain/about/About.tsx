@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import { Typography } from '@material-ui/core';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { StationCard } from '../../components/StationCard';
+import IMGProfil from '../../assets/images/about/profil.jpg';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -46,7 +47,7 @@ export const About: React.FC = () => {
                 </Box>
                 <Grid container spacing={3} justify="center">
                     <Grid item lg={3} md={5} sm={10} xs={12}>
-                        <img src="https://via.placeholder.com/300" alt="Julian Klummer" className={classes.img}></img>
+                        <img src={IMGProfil} alt="Julian Klummer" className={classes.img}></img>
                     </Grid>
                     <Grid item lg={4} md={5} sm={10} xs={12}>
                         <Typography component="p" variant="body1" color="textPrimary" className={classes.typo}>
