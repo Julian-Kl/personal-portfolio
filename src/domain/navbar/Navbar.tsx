@@ -52,6 +52,9 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up('lg')]: {
         display: 'none'
       }
+    },
+    translateIcon: {
+      marginRight: 8
     }
   }),
 );
@@ -200,21 +203,17 @@ export const Navbar: React.FC<Props> = (props) => {
           style={{ transformOrigin: '0 0 0' }}
           {... { timeout: 2500 }}
         >
-        <Brightness4Icon onClick={changeTheme} />
-        </Grow>
-        <Grow
-          in={true}
-          style={{ transformOrigin: '0 0 0' }}
-          {... { timeout: 2500 }}
-        >
-        <FormControl>
-          <Switch
-            color="default"
-            className={classes.collapse}
-            checked={themeToggle}
-            aria-label="theme-switch"
-            onChange={changeTheme} size="medium" />
-        </FormControl>
+          <IconButton onClick={changeTheme}>
+            <Brightness4Icon />
+            <FormControl>
+              <Switch
+                color="default"
+                className={classes.collapse}
+                checked={themeToggle}
+                aria-label="theme-switch"
+                onChange={changeTheme} size="medium" />
+            </FormControl>
+          </IconButton>
         </Grow>
         <Grow
           in={true}
@@ -222,16 +221,12 @@ export const Navbar: React.FC<Props> = (props) => {
           {... { timeout: 3000 }}
         >
           <Box ml="3">
-            <Button
-              startIcon={<TranslateIcon />}
-              size="large"
-              aria-controls="language-menu"
-              aria-haspopup="true"
-              onClick={handleClick}>
+            <IconButton onClick={handleClick} aria-controls="language-menu" aria-haspopup="true">
+              <TranslateIcon className={classes.translateIcon} />
               <Typography className={classes.collapse}>
                 {languageLabel}
               </Typography>
-            </Button>
+            </IconButton>
             <Menu
               id="language-menu"
               anchorEl={anchorLanguageMenu}

@@ -35,7 +35,14 @@ const useStyles = makeStyles((theme: Theme) =>
       // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
       transform: 'translateZ(0)',
     },
-    navButton: {
+    navButtonLeft: {
+      marginTop: 190,
+      float: 'right',
+      [theme.breakpoints.down('sm')]: {
+        display: 'none'
+      }
+    },
+    navButtonRight: {
       marginTop: 190,
       [theme.breakpoints.down('sm')]: {
         display: 'none'
@@ -82,7 +89,7 @@ export const Portfolio: React.FC = () => {
         image: IMGPortfolio,
         title: "Portfolio",
         description: "Personal website about me to present my portfolio made with React and Material UI",
-        liveLink: "http://julianklummer.me/",
+        liveLink: "http://julianklummer.de/",
         githubLink: "https://github.com/Julian-Kl/personal-portfolio"
       },
       {
@@ -106,7 +113,7 @@ export const Portfolio: React.FC = () => {
         image: IMGPortfolio,
         title: "Portfolio",
         description: "Persönliche Website über mich, um meine Projekte zu präsentieren. Entwickelt mit React und Material UI",
-        liveLink: "http://julianklummer.me/",
+        liveLink: "http://julianklummer.de/",
         githubLink: "https://github.com/Julian-Kl/personal-portfolio"
       },
       {
@@ -135,7 +142,7 @@ export const Portfolio: React.FC = () => {
       <div className={classes.root}>
         <Grid container spacing={4} justify="center">
           <Grid item lg={1} md={1} sm={1} xs={1}>
-            <IconButton aria-label="back" className={classes.navButton} onClick={() => {
+            <IconButton aria-label="back" className={classes.navButtonLeft} onClick={() => {
               scrollContainer.current.scrollBy({ top: 0, left: -260, behavior: "smooth" });
             }}>
               <ArrowBackIosIcon />
@@ -175,7 +182,7 @@ export const Portfolio: React.FC = () => {
             </GridList>
           </Grid>
           <Grid item lg={1} md={1} sm={1} xs={1}>
-            <IconButton aria-label="forward" className={classes.navButton} onClick={() => {
+            <IconButton aria-label="forward" className={classes.navButtonRight} onClick={() => {
               scrollContainer.current.scrollBy({ top: 0, left: 260, behavior: "smooth" });
             }}>
               <ArrowForwardIosIcon />

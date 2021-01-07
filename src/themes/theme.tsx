@@ -13,18 +13,18 @@ interface themeModeSpecifics {
 
 export const dark: themeModeSpecifics = {
   paletteType: 'dark',
-  primaryLight: '#b084f4',
-  primaryMain: '#7540dd',
-  primaryDark: '#4d2b90',
+  primaryLight: '#3966F9',
+  primaryMain: '#3966F9',
+  primaryDark: '#3966F9',
   secondaryLight: '#b084f4',
   secondaryMain: '#4d2b90',
   secondaryDark: '#4d2b90'
 }
 export const light: themeModeSpecifics = {
   paletteType: 'light',
-  primaryLight: '#b084f4',
-  primaryMain: '#80d6ff',
-  primaryDark: '#4d2b90',
+  primaryLight: '#FF7E47',
+  primaryMain: '#FF7E47',
+  primaryDark: '#FF7E47',
   secondaryLight: '#b084f4',
   secondaryMain: '#4d2b90',
   secondaryDark: '#4d2b90'
@@ -33,11 +33,11 @@ export const light: themeModeSpecifics = {
 export const useStyles = makeStyles({
   backgroundDark: {
     height: '100vh',
-    background: 'linear-gradient(140deg, #000714 20%, #2e1956 80%, #4d2b90)',
+    background: 'linear-gradient(140deg, #000714 20%, #000f3f 50%, #041f79 80%, #041f79)',
   },
   backgroundLight: {
     height: '100vh',
-    background: 'linear-gradient(140deg, #c1ebff 20%, #a7e2fe 40%, #80d6ff)',
+    background: 'linear-gradient(140deg, #ace0f9 0%, #FF7E47 100%)',
   },
 })
 
