@@ -7,9 +7,9 @@
     },
     "about": {
         "title": "About",
-        "description": ["My enthusiasm for web technologies and programming  began during my online media management studies. In the past seven semesters, I explored the interplay of technology, media and management that make modern web applications possible.",
+        "description": ["My enthusiasm for web technologies and programming  began during my online media management studies. In the past seven semesters, I explored the interplay of technology, media and management that makes modern web applications possible.",
             "Beyond my studies, I deepened my knowledge of programming languages like PHP, JavaScript and TypeScript and got familiar with React and APIs.",
-            "Another passion of mine is music and event management. Since 2018 I have been organizing events with my agency inPulse. I was able to dive deeper into the world of graphic design and content creation through various marketing champagnes for these events. This trained my eye for good design."],
+            "Another passion of mine is music and event management. Since 2018 I have been organizing events with my agency inPulse. I was able to dive deeper into the world of graphic design and content creation through various marketing campaigns for these events. This trained my eye for good design."],
         "stations": {
             "one": {
                 "title": "BACHELOR OF ARTS: ONLINE-MEDIEN-MANAGEMENT",

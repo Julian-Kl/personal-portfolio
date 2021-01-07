@@ -55,7 +55,7 @@ const App: React.FC = () => {
       }
       case "skills": {
         skillsRef.current.scrollIntoView({ behaviour: 'smooth' });
-        break;   
+        break;
       }
       case "portfolio": {
         portfolioRef.current.scrollIntoView({ behaviour: 'smooth' });

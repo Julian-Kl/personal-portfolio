@@ -3,11 +3,11 @@
     "start": {
         "title": "Start",
         "headline": "Julian Klummer",
-        "description": "Online Medien Generalist spezalisiert auf Front-End Entwicklung"
+        "description": "Online Medien Generalist spezialisiert auf Front-End Entwicklung"
     },
     "about": {
         "title": "Über",
-        "description": ["Meine Begeisterung für Web Technologien und Programmierung entdeckte ich im Laufe meines Online Medien Management Studiums. In meinen vergangenen sieben Semestern erschloss ich mir das Zusammenspiel von Technik, Medien und Management, welche moderne Webanwendungen ermöglichen.",
+        "description": ["Meine Begeisterung für Web-Technologien und Programmierung entdeckte ich im Laufe meines Online Medien Management Studiums. In meinen vergangenen sieben Semestern erschloss ich mir das Zusammenspiel von Technik, Medien und Management, welche moderne Webanwendungen ermöglichen.",
         "Über das Studium hinaus vertiefte ich in meiner Freizeit autodidaktisch meine Kenntnisse in Programmiersprachen wie PHP, JavaScript und TypeScript und setzte mich mit React und APIs auseinander.",
         "Meine zweite Leidenschaft ist die Musik und damit verbunden das Event-Management. Seit 2018 organisiere ich nebenberuflich Veranstaltungen. Durch diverse Marketingmaßnahmen bei dieser Arbeit konnte ich auch in die Welt des Graphik Designs und der Content Kreation tiefer eintauchen und mein Auge für Design schulen."],
         "stations": {
@@ -27,7 +27,7 @@
                 "location": "Heilbronn",
                 "icon": "WorkIcon",
                 "link": "https://inpulse.agency/",
-                "infos": ["Event- und brandmanagement", "Online & Offline Marketing", "teilzeit"]
+                "infos": ["Event- and brandmanagement", "Online & Offline Marketing", "teilzeit"]
             },
             "three": {
                 "title": "PRAKTIKUM: E-COMMERCE CRM MARKETING",
