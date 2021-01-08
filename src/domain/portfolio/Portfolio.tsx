@@ -67,6 +67,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     right: {
       float: 'right'
+    },
+    marginRight: {
+      marginRight: 8
     }
   }),
 );
@@ -170,10 +173,16 @@ export const Portfolio: React.FC = () => {
                     </CardActionArea>
                     <CardActions disableSpacing>
                       <IconButton aria-label="Live" href={project.liveLink} target="blank">
-                        <OpenInNewIcon />
+                        <OpenInNewIcon className={classes.marginRight} />
+                        <Typography>
+                          Live
+                        </Typography>
                       </IconButton>
                       <IconButton aria-label="Github" href={project.githubLink} target="blank">
-                        <GitHubIcon />
+                        <GitHubIcon className={classes.marginRight} />
+                        <Typography>
+                          Code
+                        </Typography>
                       </IconButton>
                     </CardActions>
                   </Card>
