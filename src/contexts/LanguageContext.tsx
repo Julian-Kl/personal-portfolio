@@ -68,7 +68,7 @@ interface Dictionary {
       "mail": string,
       "telephone": string
     },
-    "legal notice": {
+    "legalNotice": {
       "title": string,
       "information": string
     }

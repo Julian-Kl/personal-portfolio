@@ -19,7 +19,7 @@ import { ContactButton } from '../../components/ContactButton';
 import Grow from '@material-ui/core/Grow';
 
 interface Props {
-  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact") => any
+  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => any
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -55,6 +55,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     translateIcon: {
       marginRight: 8
+    },
+    link: {
+      textDecoration: 'none'
     }
   }),
 );
@@ -73,6 +76,7 @@ export const Navbar: React.FC<Props> = (props) => {
   const itemThree = languageContext?.dictionary.skills.title!;
   const itemFour = languageContext?.dictionary.portfolio.title!;
   const itemFive = languageContext?.dictionary.contact.title!;
+  const itemSix = languageContext?.dictionary.legalNotice.title!;
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     let target = event.currentTarget.getAttribute('aria-controls');

@@ -70,7 +70,7 @@ interface dictionaryList {
       "mail": string,
       "telephone": string
     },
-    "legal notice": {
+    "legalNotice": {
       "title": string,
       "information": string
     }
@@ -143,7 +143,7 @@ interface dictionaryList {
       "mail": string,
       "telephone": string
     },
-    "legal notice": {
+    "legalNotice": {
       "title": string,
       "information": string
     }

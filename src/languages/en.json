@@ -68,8 +68,8 @@
         "mail": "julian.klummer@outlook.de",
         "telephone": "+49 171 6275469"
     },
-    "legal notice": {
-        "title": "Impressum",
-        "information": "Julian Klummer, Pfaffenwaldring 74-C, 70569 Stuttgart <br> Contact: julian.klummer@outlook.de / +49 171 6275469"
+    "legalNotice": {
+        "title": "Legal Notice",
+        "information": "Host: Julian Klummer Adress: Pfaffenwaldring 74-C, 70569 Stuttgart"
     }
 }
