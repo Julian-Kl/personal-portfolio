@@ -208,11 +208,6 @@ export const Navbar: React.FC<Props> = (props) => {
               handleClose();
               props.navigation("contact");
             }}>{itemFive}</MenuItem>
-            <NavLink to={{ pathname: "/legal" }} className={classes.link} activeClassName={classes.link}>
-              <MenuItem>
-                {itemSix}
-              </MenuItem>
-            </NavLink>
           </Menu>
           <Grow
             in={true}

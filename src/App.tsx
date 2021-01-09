@@ -36,6 +36,8 @@ const useStyles = makeStyles((theme: Theme) =>
 const App: React.FC = (props) => {
   const classes = useStyles();
 
+  const scrollContainerRef = useRef<any>(null);
+
   const startRef = useRef<any>(null);
   const aboutRef = useRef<any>(null);
   const skillsRef = useRef<any>(null);
@@ -43,25 +45,50 @@ const App: React.FC = (props) => {
   const contactRef = useRef<any>(null);
 
   const navigation = (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => {
+
+    let headerOffset = 64;
     switch (target) {
       case "start": {
-        startRef.current.scrollIntoView({ behaviour: 'smooth' });
+        scrollContainerRef.current.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
         break;
       }
       case "about": {
-        aboutRef.current.scrollIntoView({ behaviour: 'smooth' });
+        let elementPosition = aboutRef.current.offsetTop;
+        let offsetPosition = elementPosition - headerOffset;
+        scrollContainerRef.current.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
         break;
       }
       case "skills": {
-        skillsRef.current.scrollIntoView({ behaviour: 'smooth' });
+        let elementPosition = skillsRef.current.offsetTop;
+        let offsetPosition = elementPosition - headerOffset;
+        scrollContainerRef.current.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
         break;
       }
       case "portfolio": {
-        portfolioRef.current.scrollIntoView({ behaviour: 'smooth' });
+        let elementPosition = portfolioRef.current.offsetTop;
+        let offsetPosition = elementPosition - headerOffset;
+        scrollContainerRef.current.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
         break;
       }
       case "contact": {
-        contactRef.current.scrollIntoView({ behaviour: 'smooth' });
+        let elementPosition = contactRef.current.offsetTop;
+        let offsetPosition = elementPosition - headerOffset;
+        scrollContainerRef.current.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
         break;
       }
     }
@@ -71,21 +98,20 @@ const App: React.FC = (props) => {
 
   const handleScroll = (e: { target: any; }) => {
     let element = e.target
-    if (element.scrollTop > 10){
+    if (element.scrollTop > 10) {
       setNavbarBackground(true);
     } else {
       setNavbarBackground(false);
     }
-    console.log(`Navbar Background: ${navbarBackground}`)
   }
 
   return (
     <React.Fragment>
       <Router>
-        <div className={classes.scrollContainer} onScroll={handleScroll}>
-            <div className={classes.siteContainer}>
-              <Navbar navigation={navigation} siteContainer={classes.siteContainer} background={navbarBackground} />
-            </div>
+        <div className={classes.scrollContainer} onScroll={handleScroll} ref={scrollContainerRef}>
+          <div className={classes.siteContainer}>
+            <Navbar navigation={navigation} siteContainer={classes.siteContainer} background={navbarBackground} />
+          </div>
           <div className={classes.siteContainer}>
             <Switch>
               <Route exact path="/">
