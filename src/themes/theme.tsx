@@ -17,7 +17,7 @@ export const dark: themeModeSpecifics = {
   primaryMain: '#3966F9',
   primaryDark: '#3966F9',
   secondaryLight: '#b084f4',
-  secondaryMain: '#4d2b90',
+  secondaryMain: '#000714',
   secondaryDark: '#4d2b90'
 }
 export const light: themeModeSpecifics = {
@@ -26,7 +26,7 @@ export const light: themeModeSpecifics = {
   primaryMain: '#FF7E47',
   primaryDark: '#FF7E47',
   secondaryLight: '#b084f4',
-  secondaryMain: '#4d2b90',
+  secondaryMain: '#ffffff',
   secondaryDark: '#4d2b90'
 }
 

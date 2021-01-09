@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,9 +17,13 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { ContactButton } from '../../components/ContactButton';
 import Grow from '@material-ui/core/Grow';
+import { NavLink } from "react-router-dom";
+import AppBar from '@material-ui/core/AppBar';
 
 interface Props {
-  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => any
+  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => any,
+  siteContainer: string,
+  background: boolean
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -57,16 +61,30 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: 8
     },
     link: {
-      textDecoration: 'none'
+      textDecoration: 'none',
+      color: theme.palette.text.primary
     }
-  }),
+  })
 );
 
 export const Navbar: React.FC<Props> = (props) => {
   const classes = useStyles();
-  const [anchorMainMenu, setAnchorMainMenu] = React.useState<null | HTMLElement>(null);
-  const [anchorLanguageMenu, setLanguageMenu] = React.useState<null | HTMLElement>(null);
-  const [themeToggle, setThemeToggle] = React.useState<boolean>(true);
+  const [anchorMainMenu, setAnchorMainMenu] = useState<null | HTMLElement>(null);
+  const [anchorLanguageMenu, setLanguageMenu] = useState<null | HTMLElement>(null);
+  const [themeToggle, setThemeToggle] = useState<boolean>(true);
+
+  const [backgroundColor, setBackgroundColor] = useState<'default' | 'inherit' | 'primary' | 'secondary' | 'transparent'>("transparent");
+  const [navbarElevation, setNavbarElevation] = useState<number>(0);
+
+  useEffect(() => {
+    if (props.background) {
+      setBackgroundColor("secondary");
+      setNavbarElevation(3);
+    } else {
+      setBackgroundColor("transparent");
+      setNavbarElevation(0);
+    }
+  }, [props.background])
 
   const themeContext = useContext(ThemeContext);
   const languageContext = useContext(LanguageContext);
@@ -132,7 +150,6 @@ export const Navbar: React.FC<Props> = (props) => {
   }
 
   const renderContactButton = () => {
-
     return (
       <Grow
         in={true}
@@ -148,108 +165,115 @@ export const Navbar: React.FC<Props> = (props) => {
 
   return (
     <React.Fragment>
-      <Toolbar>
-        <Grow
-          in={true}
-          style={{ transformOrigin: '0 0 0' }}
-          {... { timeout: 1000 }}
-        >
-          <IconButton
-            className={classes.menuButton}
-            aria-controls="main-menu"
-            aria-haspopup="true"
-            onClick={handleClick}
+      <AppBar position="fixed" color={backgroundColor} elevation={navbarElevation} className={props.siteContainer}>
+        <Toolbar>
+          <Grow
+            in={true}
+            style={{ transformOrigin: '0 0 0' }}
+            {... { timeout: 1000 }}
           >
-            <MenuIcon fontSize="large" />
-          </IconButton>
-        </Grow>
-        <Menu
-          id="main-menu"
-          anchorEl={anchorMainMenu}
-          keepMounted
-          open={Boolean(anchorMainMenu)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={() => {
-            handleClose();
-            props.navigation("start");
-          }}>{itemOne}</MenuItem>
-          <MenuItem onClick={() => {
-            handleClose();
-            props.navigation("about");
-          }}>{itemTwo}</MenuItem>
-          <MenuItem onClick={() => {
-            handleClose();
-            props.navigation("skills");
-          }}>{itemThree}</MenuItem>
-          <MenuItem onClick={() => {
-            handleClose();
-            props.navigation("portfolio");
-          }}>{itemFour}</MenuItem>
-          <MenuItem onClick={() => {
-            handleClose();
-            props.navigation("contact");
-          }}>{itemFive}</MenuItem>
-        </Menu>
-        <Grow
-          in={true}
-          style={{ transformOrigin: '0 0 0' }}
-          {... { timeout: 1500 }}
-        >
-          <IconButton className={classes.collapse} aria-label="Open Website" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170">
-            <LinkedInIcon fontSize="large" />
-          </IconButton>
-        </Grow>
-        {renderContactButton()}
-        <div className={classes.grow}></div>
-        <Grow
-          in={true}
-          style={{ transformOrigin: '0 0 0' }}
-          {... { timeout: 2500 }}
-        >
-          <IconButton onClick={changeTheme}>
-            <Brightness4Icon />
-            <FormControl>
-              <Switch
-                color="default"
-                className={classes.collapse}
-                checked={themeToggle}
-                aria-label="theme-switch"
-                onChange={changeTheme} size="medium" />
-            </FormControl>
-          </IconButton>
-        </Grow>
-        <Grow
-          in={true}
-          style={{ transformOrigin: '0 0 0' }}
-          {... { timeout: 3000 }}
-        >
-          <Box ml="3">
-            <IconButton onClick={handleClick} aria-controls="language-menu" aria-haspopup="true">
-              <TranslateIcon className={classes.translateIcon} />
-              <Typography className={classes.collapse}>
-                {languageLabel}
-              </Typography>
-            </IconButton>
-            <Menu
-              id="language-menu"
-              anchorEl={anchorLanguageMenu}
-              keepMounted
-              open={Boolean(anchorLanguageMenu)}
-              onClose={handleClose}
+            <IconButton
+              className={classes.menuButton}
+              aria-controls="main-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
             >
-              <MenuItem onClick={() => {
-                changeLanguage('en');
-                handleClose();
-              }}>English</MenuItem>
-              <MenuItem onClick={() => {
-                changeLanguage('de');
-                handleClose();
-              }}>Deutsch</MenuItem>
-            </Menu>
-          </Box>
-        </Grow>
-      </Toolbar>
+              <MenuIcon fontSize="large" />
+            </IconButton>
+          </Grow>
+          <Menu
+            id="main-menu"
+            anchorEl={anchorMainMenu}
+            keepMounted
+            open={Boolean(anchorMainMenu)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={() => {
+              handleClose();
+              props.navigation("start");
+            }}>{itemOne}</MenuItem>
+            <MenuItem onClick={() => {
+              handleClose();
+              props.navigation("about");
+            }}>{itemTwo}</MenuItem>
+            <MenuItem onClick={() => {
+              handleClose();
+              props.navigation("skills");
+            }}>{itemThree}</MenuItem>
+            <MenuItem onClick={() => {
+              handleClose();
+              props.navigation("portfolio");
+            }}>{itemFour}</MenuItem>
+            <MenuItem onClick={() => {
+              handleClose();
+              props.navigation("contact");
+            }}>{itemFive}</MenuItem>
+            <NavLink to={{ pathname: "/legal" }} className={classes.link} activeClassName={classes.link}>
+              <MenuItem>
+                {itemSix}
+              </MenuItem>
+            </NavLink>
+          </Menu>
+          <Grow
+            in={true}
+            style={{ transformOrigin: '0 0 0' }}
+            {... { timeout: 1500 }}
+          >
+            <IconButton className={classes.collapse} aria-label="Open Website" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170">
+              <LinkedInIcon fontSize="large" />
+            </IconButton>
+          </Grow>
+          {renderContactButton()}
+          <div className={classes.grow}></div>
+          <Grow
+            in={true}
+            style={{ transformOrigin: '0 0 0' }}
+            {... { timeout: 2500 }}
+          >
+            <IconButton onClick={changeTheme}>
+              <Brightness4Icon />
+              <FormControl>
+                <Switch
+                  color="default"
+                  className={classes.collapse}
+                  checked={themeToggle}
+                  aria-label="theme-switch"
+                  onChange={changeTheme} size="medium" />
+              </FormControl>
+            </IconButton>
+          </Grow>
+          <Grow
+            in={true}
+            style={{ transformOrigin: '0 0 0' }}
+            {... { timeout: 3000 }}
+          >
+            <Box ml="3">
+              <IconButton onClick={handleClick} aria-controls="language-menu" aria-haspopup="true">
+                <TranslateIcon className={classes.translateIcon} />
+                <Typography className={classes.collapse}>
+                  {languageLabel}
+                </Typography>
+              </IconButton>
+              <Menu
+                id="language-menu"
+                anchorEl={anchorLanguageMenu}
+                keepMounted
+                open={Boolean(anchorLanguageMenu)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={() => {
+                  changeLanguage('en');
+                  handleClose();
+                }}>English</MenuItem>
+                <MenuItem onClick={() => {
+                  changeLanguage('de');
+                  handleClose();
+                }}>Deutsch</MenuItem>
+              </Menu>
+            </Box>
+          </Grow>
+        </Toolbar>
+      </AppBar>
     </React.Fragment>
   );
 }

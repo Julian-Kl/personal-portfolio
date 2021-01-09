@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './css/App.scss';
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from "react-router-dom";
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
@@ -17,15 +17,15 @@ const useStyles = makeStyles((theme: Theme) =>
     siteContainer: {
       maxWidth: '1620px',
       marginLeft: 'auto',
-      marginRight: 'auto'
+      marginRight: 'auto',
+      left: 0
     },
     scrollContainer: {
       overflow: 'scroll',
-      height: '90%',
+      height: '100%',
       width: '100%',
       display: 'block',
       position: 'absolute',
-      bottom: '0',
     },
     site: {
       minHeight: '100vh',
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const App: React.FC = () => {
+const App: React.FC = (props) => {
   const classes = useStyles();
 
   const startRef = useRef<any>(null);
@@ -67,13 +67,25 @@ const App: React.FC = () => {
     }
   }
 
+  const [navbarBackground, setNavbarBackground] = useState<boolean>(false);
+
+  const handleScroll = (e: { target: any; }) => {
+    let element = e.target
+    if (element.scrollTop > 10){
+      setNavbarBackground(true);
+    } else {
+      setNavbarBackground(false);
+    }
+    console.log(`Navbar Background: ${navbarBackground}`)
+  }
+
   return (
     <React.Fragment>
       <Router>
-        <div className={classes.siteContainer}>
-          <Navbar navigation={navigation} />
-        </div>
-        <div className={classes.scrollContainer}>
+        <div className={classes.scrollContainer} onScroll={handleScroll}>
+            <div className={classes.siteContainer}>
+              <Navbar navigation={navigation} siteContainer={classes.siteContainer} background={navbarBackground} />
+            </div>
           <div className={classes.siteContainer}>
             <Switch>
               <Route exact path="/">
