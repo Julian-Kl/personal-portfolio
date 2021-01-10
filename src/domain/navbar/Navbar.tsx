@@ -9,7 +9,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import FormControl from '@material-ui/core/FormControl';
 import Box from '@material-ui/core/Box';
 import Switch from '@material-ui/core/Switch';
-import Button from '@material-ui/core/Button';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import TranslateIcon from '@material-ui/icons/Translate';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -19,6 +18,9 @@ import { ContactButton } from '../../components/ContactButton';
 import Grow from '@material-ui/core/Grow';
 import { NavLink } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
+import { useLocation, Redirect } from 'react-router-dom';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Divider from '@material-ui/core/Divider';
 
 interface Props {
   navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => any,
@@ -163,6 +165,14 @@ export const Navbar: React.FC<Props> = (props) => {
     );
   }
 
+  const location  = useLocation();
+  let home: boolean;
+  if(location.pathname === '/'){
+    home = true;
+  } else {
+    home = false;
+  }
+
   return (
     <React.Fragment>
       <AppBar position="fixed" color={backgroundColor} elevation={navbarElevation} className={props.siteContainer}>
@@ -172,14 +182,22 @@ export const Navbar: React.FC<Props> = (props) => {
             style={{ transformOrigin: '0 0 0' }}
             {... { timeout: 1000 }}
           >
-            <IconButton
+          {home ? <IconButton
               className={classes.menuButton}
               aria-controls="main-menu"
               aria-haspopup="true"
               onClick={handleClick}
             >
               <MenuIcon fontSize="large" />
-            </IconButton>
+            </IconButton> :
+            <IconButton
+            className={classes.menuButton}
+            aria-controls="main-menu"
+            aria-haspopup="true"
+            href="/"
+          >
+            <ArrowBackIcon fontSize="large" />
+          </IconButton>}
           </Grow>
           <Menu
             id="main-menu"
@@ -208,6 +226,12 @@ export const Navbar: React.FC<Props> = (props) => {
               handleClose();
               props.navigation("contact");
             }}>{itemFive}</MenuItem>
+            <Divider />
+            <NavLink to={{ pathname: "/legal" }} className={classes.link} activeClassName={classes.link}>
+              <MenuItem onClick={() => {handleClose()}}>
+                {itemSix}
+              </MenuItem>
+            </NavLink>
           </Menu>
           <Grow
             in={true}

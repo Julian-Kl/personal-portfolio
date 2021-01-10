@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
         },
         headline: {
+            marginTop: 64,
             [theme.breakpoints.down('sm')]: {
                 fontSize: '4em',
             }
