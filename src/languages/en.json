@@ -45,8 +45,8 @@
         "skillCards": {
             "one": {
                 "title": "Web Development",
-                "skills": ["HTML", "SCSS & CSS", "JavaScript", "TypeScript", "PHP", "React", "Bootstrap", "Material-UI", "Git/Github", "RestAPI"],
-                "levels": [5, 4, 4, 3, 4, 4, 5, 4, 3, 4]
+                "skills": ["HTML", "SCSS & CSS", "JavaScript", "TypeScript", "PHP", "SQL", "React", "Bootstrap", "Material-UI", "Git/Github", "RestAPI"],
+                "levels": [5, 4, 4, 3, 4, 2, 4, 5, 4, 3, 4]
             },
             "two": {
                 "title": "Design & Media",

@@ -21,7 +21,7 @@
                 "infos": ["Online Technologien, Webdesign & Entwicklung", "Usability & User Experience Design", "Digital Marketing & Data Analytics", "Digital Content Erstellung"]
             },
             "two": {
-                "title": "SELSBSTÄNDIG IM BEREICH EVENT-MANAGEMENT",
+                "title": "SELBSTÄNDIG IM BEREICH EVENT-MANAGEMENT",
                 "institution" : "inPulse | Klummer und Tondera GbR",
                 "duration": "seit 02/2018",
                 "location": "Heilbronn",
@@ -45,8 +45,8 @@
         "skillCards": {
             "one": {
                 "title": "Web Entwicklung",
-                "skills": ["HTML", "SCSS & CSS", "JavaScript", "TypeScript", "PHP", "React", "Bootstrap", "Material-UI", "Git/Github", "RestAPI"],
-                "levels": [5, 4, 4, 3, 4, 4, 5, 4, 3, 4]
+                "skills": ["HTML", "SCSS & CSS", "JavaScript", "TypeScript", "PHP", "SQL", "React", "Bootstrap", "Material-UI", "Git/Github", "RestAPI"],
+                "levels": [5, 4, 4, 3, 4, 2, 4, 5, 4, 3, 4]
             },
             "two": {
                 "title": "Design & Medien",
