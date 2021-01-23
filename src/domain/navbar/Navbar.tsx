@@ -23,6 +23,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Divider from '@material-ui/core/Divider';
 
 interface Props {
+  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => any,
   siteContainer: string,
   background: boolean
 }
@@ -199,26 +200,26 @@ export const Navbar: React.FC<Props> = (props) => {
           >
             <MenuItem onClick={() => {
               handleClose();
-              console.log("start");
+              props.navigation("start");
             }}>{itemOne}</MenuItem>
             <MenuItem onClick={() => {
               handleClose();
-              console.log("about");
+              props.navigation("about");
             }}>{itemTwo}</MenuItem>
             <MenuItem onClick={() => {
               handleClose();
-              console.log("skills");
+              props.navigation("skills");
             }}>{itemThree}</MenuItem>
             <MenuItem onClick={() => {
               handleClose();
-              console.log("portfolio");
+              props.navigation("portfolio");
             }}>{itemFour}</MenuItem>
             <MenuItem onClick={() => {
               handleClose();
-              console.log("contact");
+              props.navigation("contact");
             }}>{itemFive}</MenuItem>
             <Divider />
-            <NavLink to={{ pathname: "/legal" }} className={classes.link} activeClassName={classes.link} aria-label={itemSix} title={itemSix}>
+            <NavLink to={{ pathname: "/legal" }} className={classes.link} activeClassName={classes.link} aria-label={itemSix} title={itemSix} rel="nofollow">
               <MenuItem onClick={() => {handleClose()}}>
                 {itemSix}
               </MenuItem>
