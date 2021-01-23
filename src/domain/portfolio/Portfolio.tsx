@@ -156,14 +156,14 @@ export const Portfolio: React.FC = () => {
               {projects.map((project) => (
                 <GridListTile className={classes.listTile}>
                   <Card>
-                    <CardActionArea href={project.liveLink} target="blank">
+                    <CardActionArea href={project.liveLink} target="blank" title={project.title} rel="alternate">
                       <CardMedia
                         className={classes.media}
                         image={project.image}
                         title={project.title}
                       />
                       <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography gutterBottom variant="h5" component="h3">
                           {project.title}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
@@ -172,13 +172,13 @@ export const Portfolio: React.FC = () => {
                       </CardContent>
                     </CardActionArea>
                     <CardActions disableSpacing>
-                      <IconButton aria-label="Live" href={project.liveLink} target="blank">
+                      <IconButton aria-label="Live" href={project.liveLink} target="blank" title="Live" rel="alternate">
                         <OpenInNewIcon className={classes.marginRight} />
                         <Typography>
                           Live
                         </Typography>
                       </IconButton>
-                      <IconButton aria-label="Github" href={project.githubLink} target="blank">
+                      <IconButton aria-label="Github" href={project.githubLink} target="blank" title="Github" rel="alternate">
                         <GitHubIcon className={classes.marginRight} />
                         <Typography>
                           Code

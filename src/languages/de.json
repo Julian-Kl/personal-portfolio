@@ -18,6 +18,7 @@
                 "location": "Stuttgart",
                 "icon": "SchoolIcon",
                 "link": "https://www.omm.hdm-stuttgart.de/",
+                "linkTitle": "Online Medien Management Studiengangs Website",
                 "infos": ["Online Technologien, Webdesign & Entwicklung", "Usability & User Experience Design", "Digital Marketing & Data Analytics", "Digital Content Erstellung"]
             },
             "two": {
@@ -27,6 +28,7 @@
                 "location": "Heilbronn",
                 "icon": "WorkIcon",
                 "link": "https://inpulse.agency/",
+                "linkTitle": "Inpulse Website",
                 "infos": ["Event- and brandmanagement", "Online & Offline Marketing", "teilzeit"]
             },
             "three": {
@@ -36,6 +38,7 @@
                 "location": "Berlin",
                 "icon": "WorkIcon",
                 "link": "https://www.vinos.de/",
+                "linkTitle": "Wein & Vinos Online Shop",
                 "infos": ["Customer relationship management", "E-Mail Marketing & Analytics", "E-Commerce"]
             }
         }

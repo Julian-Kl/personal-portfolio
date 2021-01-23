@@ -11,15 +11,7 @@ import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import { LanguageContext } from '../contexts/LanguageContext';
 
-const Checked: React.FC = () => {
-  return <Brightness1Icon color="primary" />;
-}
-
-const Unchecked: React.FC = () => {
-  return <RadioButtonUncheckedIcon color="primary" />;
-}
-
-interface SkillCard {
+interface SkillCardInterface {
   skill: 'one' | 'two' | 'three'
 }
 
@@ -38,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const SkillCard: React.FC<SkillCard> = (props) => {
+export const SkillCard: React.FC<SkillCardInterface> = (props) => {
   const classes = useStyles();
 
   const languageContext = useContext(LanguageContext);

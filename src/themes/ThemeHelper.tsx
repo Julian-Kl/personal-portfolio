@@ -45,10 +45,10 @@ export const ThemeHelper: React.FC = (props) => {
   return (
     <div className={theme === 'light' ? classes.backgroundLight : classes.backgroundDark}>
       <ThemeProvider theme={appliedTheme}>
+        <CssBaseline />
         <ThemeContextProvider value={themeMemo}>
           {props.children}
         </ThemeContextProvider>
-        <CssBaseline />
       </ThemeProvider>
     </div>
   );

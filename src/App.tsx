@@ -1,6 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import './css/App.scss';
-import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from "react-router-dom";
+<<<<<<< Updated upstream
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+=======
+import { Switch, Route, useLocation, Redirect } from "react-router-dom";
+>>>>>>> Stashed changes
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Navbar } from './domain/navbar/Navbar';
 import { BottomNav } from './domain/bottomnav/BottomNav';
@@ -44,6 +48,7 @@ const App: React.FC = (props) => {
   const portfolioRef = useRef<any>(null);
   const contactRef = useRef<any>(null);
 
+<<<<<<< Updated upstream
   const navigation = (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => {
 
     let headerOffset = 64;
@@ -94,6 +99,9 @@ const App: React.FC = (props) => {
     }
   }
 
+=======
+  
+>>>>>>> Stashed changes
   const [navbarBackground, setNavbarBackground] = useState<boolean>(false);
 
   const handleScroll = (e: { target: any; }) => {
@@ -105,12 +113,19 @@ const App: React.FC = (props) => {
     }
   }
 
+
   return (
     <React.Fragment>
+<<<<<<< Updated upstream
       <Router>
         <div className={classes.scrollContainer} onScroll={handleScroll} ref={scrollContainerRef}>
           <div className={classes.siteContainer}>
             <Navbar navigation={navigation} siteContainer={classes.siteContainer} background={navbarBackground} />
+=======
+        <div className={classes.scrollContainer} onScroll={handleScroll}>
+          <div className={classes.siteContainer}>
+            <Navbar siteContainer={classes.siteContainer} background={navbarBackground} />
+>>>>>>> Stashed changes
           </div>
           <div className={classes.siteContainer}>
             <Switch>
@@ -133,18 +148,20 @@ const App: React.FC = (props) => {
                   </div>
                 </div>
               </Route>
-              <Route exact path="/legal">
+              <Route path="/legal">
                 <LegalNotice />
+              </Route>
+              <Route path="*">
+                <Redirect to="/" />
               </Route>
             </Switch>
           </div>
         </div>
         <div className={classes.siteContainer}>
           <BottomNav>
-            <ContactButton navigation={navigation} />
+            <ContactButton />
           </BottomNav>
         </div>
-      </Router>
     </React.Fragment>
   );
 }

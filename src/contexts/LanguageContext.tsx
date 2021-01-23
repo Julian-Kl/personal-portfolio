@@ -1,6 +1,17 @@
 import { createContext } from 'react';
 
-interface Dictionary {
+export interface Station {
+  title: string,
+  institution: string,
+  duration: string,
+  location: string,
+  icon: string,
+  link: string,
+  linkTitle: string,
+  infos: string[]
+}
+
+export interface Dictionary {
     "contactButton": string,
     "start": {
       "title": string,
@@ -11,33 +22,9 @@ interface Dictionary {
       "title": string,
       "description": string[],
       "stations": {
-        "one": {
-          title: string,
-          institution: string,
-          duration: string,
-          location: string,
-          icon: string,
-          link: string,
-          infos: string[]
-        },
-        "two": {
-          title: string,
-          institution: string,
-          duration: string,
-          location: string,
-          icon: string,
-          link: string,
-          infos: string[]
-        },
-        "three": {
-          title: string,
-          institution: string,
-          duration: string,
-          location: string,
-          icon: string,
-          link: string,
-          infos: string[]
-        }
+        "one": Station,
+        "two": Station,
+        "three": Station
       }
     },
     "skills": {
@@ -74,13 +61,13 @@ interface Dictionary {
     }
 }
 
-interface LanguageContext {
+interface LanguageContextInterface {
   userLanguage: 'en' | 'de',
   setUserLanguage: Function,
   dictionary: Dictionary
 }
 
-export const LanguageContext = createContext<LanguageContext | null>(null);
+export const LanguageContext = createContext<LanguageContextInterface | null>(null);
 
 export const LanguageContextProvider = LanguageContext.Provider;
 

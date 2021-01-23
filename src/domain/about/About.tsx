@@ -7,7 +7,6 @@ import { LanguageContext } from '../../contexts/LanguageContext';
 import { StationCard } from '../../components/StationCard';
 import IMGProfil from '../../assets/images/about/profil.jpg';
 
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -37,7 +36,6 @@ export const About: React.FC = () => {
 
     const title = languageContext?.dictionary.about.title!;
     const description = languageContext?.dictionary.about.description!;
-    const stations = languageContext?.dictionary.about.stations!;
 
     return (
         <Box m={4}>
@@ -47,7 +45,7 @@ export const About: React.FC = () => {
                 </Box>
                 <Grid container spacing={3} justify="center">
                     <Grid item lg={3} md={5} sm={10} xs={12}>
-                        <img src={IMGProfil} alt="Julian Klummer" className={classes.img}></img>
+                        <img src={IMGProfil} title="Julian Klummer" alt="Julian Klummer" className={classes.img}></img>
                     </Grid>
                     <Grid item lg={4} md={5} sm={10} xs={12}>
                         <Typography component="p" variant="body1" color="textPrimary" className={classes.typo}>

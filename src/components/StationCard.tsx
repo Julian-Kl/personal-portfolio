@@ -22,20 +22,11 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Station } from '../contexts/LanguageContext';
 
 
 interface Props {
     station: 'one' | 'two' | 'three'
-}
-
-interface Data {
-    title: string,
-    institution: string,
-    duration: string,
-    location: string,
-    icon: string,
-    link: string,
-    infos: string[]
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -73,7 +64,7 @@ export const StationCard: React.FC<Props> = (props) => {
 
     const languageContext = useContext(LanguageContext);
 
-    let data: Data;
+    let data: Station;
     switch (props.station) {
         case "one":
             data = languageContext?.dictionary.about.stations.one!;
@@ -90,10 +81,8 @@ export const StationCard: React.FC<Props> = (props) => {
         switch (data.icon) {
             case "WorkIcon":
                 return <WorkIcon fontSize="large" />;
-                break;
             case "SchoolIcon":
                 return <SchoolIcon fontSize="large" />;
-                break;
         }
     }
 
@@ -109,7 +98,7 @@ export const StationCard: React.FC<Props> = (props) => {
                                 </Avatar>
                             }
                             title={
-                                <Typography gutterBottom variant="body1" component="h2">
+                                <Typography gutterBottom variant="body1" component="h3">
                                     {data.title}
                                 </Typography>
                             }
@@ -117,17 +106,17 @@ export const StationCard: React.FC<Props> = (props) => {
                                 <div>
                                     <Grid container spacing={6} justify="flex-start">
                                         <Grid item xs={7}>
-                                            <Typography gutterBottom variant="body2" component="h2">
+                                            <Typography gutterBottom variant="body2" component="p">
                                                 {data.institution}
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={5}>
-                                            <Typography gutterBottom variant="body2" component="h2" align="right">
+                                            <Typography gutterBottom variant="body2" component="p" align="right">
                                                 {data.duration}
                                             </Typography>
                                         </Grid>
                                     </Grid>
-                                    <Typography gutterBottom variant="body2" component="h2">
+                                    <Typography gutterBottom variant="body2" component="p">
                                         <LocationOnIcon fontSize="small" /> {data.location}
                                     </Typography>
                                 </div>
@@ -135,7 +124,7 @@ export const StationCard: React.FC<Props> = (props) => {
                         />
                         <Divider />
                         <CardActions disableSpacing>
-                            <IconButton aria-label="Open Website" target="blank" href={data.link}>
+                            <IconButton aria-label="Open Website" target="blank" href={data.link} title={data.linkTitle} rel="alternate">
                                 <OpenInNewIcon fontSize="small" />
                             </IconButton>
                             <IconButton

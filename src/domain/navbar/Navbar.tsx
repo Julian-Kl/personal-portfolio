@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -18,12 +18,11 @@ import { ContactButton } from '../../components/ContactButton';
 import Grow from '@material-ui/core/Grow';
 import { NavLink } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
-import { useLocation, Redirect } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Divider from '@material-ui/core/Divider';
 
 interface Props {
-  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => any,
   siteContainer: string,
   background: boolean
 }
@@ -43,16 +42,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     inputRoot: {
       color: 'inherit',
-    },
-    inputInput: {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '20ch',
-      }
     },
     contactButton: {
       [theme.breakpoints.up('lg')]: {
@@ -87,6 +76,7 @@ export const Navbar: React.FC<Props> = (props) => {
       setNavbarElevation(0);
     }
   }, [props.background])
+
 
   const themeContext = useContext(ThemeContext);
   const languageContext = useContext(LanguageContext);
@@ -159,7 +149,7 @@ export const Navbar: React.FC<Props> = (props) => {
         {... { timeout: 2000 }}
       >
         <Box mx="auto" className={classes.contactButton}>
-          <ContactButton navigation={props.navigation} />
+          <ContactButton />
         </Box>
       </Grow>
     );
@@ -189,7 +179,8 @@ export const Navbar: React.FC<Props> = (props) => {
               onClick={handleClick}
             >
               <MenuIcon fontSize="large" />
-            </IconButton> :
+            </IconButton>
+            :
             <IconButton
             className={classes.menuButton}
             aria-controls="main-menu"
@@ -208,26 +199,26 @@ export const Navbar: React.FC<Props> = (props) => {
           >
             <MenuItem onClick={() => {
               handleClose();
-              props.navigation("start");
+              console.log("start");
             }}>{itemOne}</MenuItem>
             <MenuItem onClick={() => {
               handleClose();
-              props.navigation("about");
+              console.log("about");
             }}>{itemTwo}</MenuItem>
             <MenuItem onClick={() => {
               handleClose();
-              props.navigation("skills");
+              console.log("skills");
             }}>{itemThree}</MenuItem>
             <MenuItem onClick={() => {
               handleClose();
-              props.navigation("portfolio");
+              console.log("portfolio");
             }}>{itemFour}</MenuItem>
             <MenuItem onClick={() => {
               handleClose();
-              props.navigation("contact");
+              console.log("contact");
             }}>{itemFive}</MenuItem>
             <Divider />
-            <NavLink to={{ pathname: "/legal" }} className={classes.link} activeClassName={classes.link}>
+            <NavLink to={{ pathname: "/legal" }} className={classes.link} activeClassName={classes.link} aria-label={itemSix} title={itemSix}>
               <MenuItem onClick={() => {handleClose()}}>
                 {itemSix}
               </MenuItem>
@@ -238,7 +229,7 @@ export const Navbar: React.FC<Props> = (props) => {
             style={{ transformOrigin: '0 0 0' }}
             {... { timeout: 1500 }}
           >
-            <IconButton className={classes.collapse} aria-label="Open Website" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170">
+            <IconButton className={classes.collapse} aria-label="LinkedIn Profile" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170" title="LinkedIn Profile">
               <LinkedInIcon fontSize="large" />
             </IconButton>
           </Grow>
