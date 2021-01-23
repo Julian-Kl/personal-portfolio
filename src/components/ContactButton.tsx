@@ -5,6 +5,10 @@ import { LanguageContext } from '../contexts/LanguageContext';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grow from '@material-ui/core/Grow';
 
+interface Props {
+  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact") => any
+}
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         icon: {
@@ -16,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-export const ContactButton: React.FC = (props) => {
+export const ContactButton: React.FC<Props> = (props) => {
   const classes = useStyles();
   const languageContext = useContext(LanguageContext);
 
@@ -28,7 +32,7 @@ export const ContactButton: React.FC = (props) => {
           style={{ transformOrigin: '-100 0 0' }}
           {...{ timeout: 3000 }}
         >
-      <Button endIcon={<ChatIcon className={classes.icon} />} variant="contained" size="large" onClick={() => console.log("Navigation")}>
+      <Button endIcon={<ChatIcon className={classes.icon} />} variant="contained" size="large" onClick={() => props.navigation("contact")}>
         {contactButton}</Button>
     </Grow >
   );

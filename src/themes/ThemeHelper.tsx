@@ -22,7 +22,7 @@ export const ThemeHelper: React.FC = (props) => {
     } else {
       setDeviceTheme('dark');
     }
-  });
+  }, [deviceLightTheme]);
 
   // Changes theme mode if device preference changes
   useEffect(() => {

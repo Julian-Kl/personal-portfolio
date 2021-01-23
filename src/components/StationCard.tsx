@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         expandOpen: {
             transform: 'rotate(180deg)',
+        },
+        marginRight: {
+            marginRight: 8
         }
     }),
 );
@@ -125,7 +128,10 @@ export const StationCard: React.FC<Props> = (props) => {
                         <Divider />
                         <CardActions disableSpacing>
                             <IconButton aria-label="Open Website" target="blank" href={data.link} title={data.linkTitle} rel="alternate">
-                                <OpenInNewIcon fontSize="small" />
+                                <OpenInNewIcon fontSize="small"  className={classes.marginRight} />
+                                <Typography>
+                                    Web
+                                </Typography>
                             </IconButton>
                             <IconButton
                                 className={clsx(classes.expand, {

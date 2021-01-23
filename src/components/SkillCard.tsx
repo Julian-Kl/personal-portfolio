@@ -67,22 +67,22 @@ export const SkillCard: React.FC<SkillCardInterface> = (props) => {
 
   const generateDivider = (key: number) => {
     if((key + 1) < data.skills.length){
-      return (<Divider />);
+      return (<Divider light variant="middle" component="li" />);
     } else {
       return null;
     }
   }
 
   const generateSkill = () => {
-    return data.skills.map((value) =>
+    return data.skills.map((skillNumber) =>
       <React.Fragment>
         <ListItem>
           <ListItemText
-            primary={value}
+            primary={skillNumber}
           />
-          {generateLevel(data.skills.indexOf(value))}
+          {generateLevel(data.skills.indexOf(skillNumber))}
         </ListItem>
-        {generateDivider(data.skills.indexOf(value))}
+        {generateDivider(data.skills.indexOf(skillNumber))}
       </React.Fragment>
     );
   }

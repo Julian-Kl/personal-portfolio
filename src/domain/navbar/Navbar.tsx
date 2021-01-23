@@ -23,7 +23,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Divider from '@material-ui/core/Divider';
 
 interface Props {
-  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => any,
+  navigation: (target: "start" | "about" | "skills" | "portfolio" | "contact") => any,
   siteContainer: string,
   background: boolean
 }
@@ -55,6 +55,10 @@ const useStyles = makeStyles((theme: Theme) =>
     link: {
       textDecoration: 'none',
       color: theme.palette.text.primary
+    },
+    label: {
+      display: 'none',
+      visibility: 'hidden'
     }
   })
 );
@@ -129,7 +133,7 @@ export const Navbar: React.FC<Props> = (props) => {
     } else {
       console.log('Theme Context Error: Neither default value or device value are set.')
     }
-  });
+  }, [themeContext]);
 
   let languageLabel = 'Language';
   if (languageContext?.userLanguage === 'en') {
@@ -150,7 +154,7 @@ export const Navbar: React.FC<Props> = (props) => {
         {... { timeout: 2000 }}
       >
         <Box mx="auto" className={classes.contactButton}>
-          <ContactButton />
+          <ContactButton navigation={props.navigation}/>
         </Box>
       </Grow>
     );
@@ -168,23 +172,29 @@ export const Navbar: React.FC<Props> = (props) => {
     <React.Fragment>
       <AppBar position="fixed" color={backgroundColor} elevation={navbarElevation} className={props.siteContainer}>
         <Toolbar>
+          <label className={classes.label} htmlFor="menu-button">{home ? "menu" : "back"}</label>
           <Grow
             in={true}
             style={{ transformOrigin: '0 0 0' }}
             {... { timeout: 1000 }}
           >
-          {home ? <IconButton
+          {home ? 
+          <IconButton
+              id="menu-button"
               className={classes.menuButton}
               aria-controls="main-menu"
+              aria-label="main menu"
               aria-haspopup="true"
               onClick={handleClick}
+              name="main-menu"
             >
               <MenuIcon fontSize="large" />
             </IconButton>
             :
             <IconButton
+            id="menu-button"
             className={classes.menuButton}
-            aria-controls="main-menu"
+            aria-controls="back"
             aria-haspopup="true"
             href="/"
           >
@@ -230,12 +240,13 @@ export const Navbar: React.FC<Props> = (props) => {
             style={{ transformOrigin: '0 0 0' }}
             {... { timeout: 1500 }}
           >
-            <IconButton className={classes.collapse} aria-label="LinkedIn Profile" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170" title="LinkedIn Profile">
+            <IconButton className={classes.collapse} aria-label="LinkedIn profile" target="blank" href="https://de.linkedin.com/in/julian-klummer-515a78170" title="LinkedIn profile">
               <LinkedInIcon fontSize="large" />
             </IconButton>
           </Grow>
           {renderContactButton()}
           <div className={classes.grow}></div>
+          <label className={classes.label} htmlFor="theme-toggle">Change color theme</label>
           <Grow
             in={true}
             style={{ transformOrigin: '0 0 0' }}
@@ -245,10 +256,12 @@ export const Navbar: React.FC<Props> = (props) => {
               <Brightness4Icon />
               <FormControl>
                 <Switch
+                  id="theme-toggle"
                   color="default"
                   className={classes.collapse}
                   checked={themeToggle}
-                  aria-label="theme-switch"
+                  aria-label="theme-toggle"
+                  name="theme-toggle"
                   onChange={changeTheme} size="medium" />
               </FormControl>
             </IconButton>

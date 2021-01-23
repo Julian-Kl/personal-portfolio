@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from 'react';
+import React, { useRef, useState } from 'react';
 import './css/App.scss';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
@@ -44,7 +44,7 @@ const App: React.FC = (props) => {
   const portfolioRef = useRef<any>(null);
   const contactRef = useRef<any>(null);
 
-  const navigation = (target: "start" | "about" | "skills" | "portfolio" | "contact" | "legalNotice") => {
+  const navigation = (target: "start" | "about" | "skills" | "portfolio" | "contact") => {
 
     let headerOffset = 64;
     switch (target) {
@@ -133,11 +133,6 @@ const App: React.FC = (props) => {
                     <Contact />
                   </div>
                 </div>
-                <div className={classes.siteContainer}>
-                  <BottomNav>
-                    <ContactButton />
-                  </BottomNav>
-                </div>
               </Route>
               <Route path="/legal">
                 <LegalNotice />
@@ -147,6 +142,11 @@ const App: React.FC = (props) => {
               </Route>
             </Switch>
           </div>
+        </div>
+        <div className={classes.siteContainer}>
+          <BottomNav>
+            <ContactButton navigation={navigation} />
+          </BottomNav>
         </div>
       </Router>
     </React.Fragment>

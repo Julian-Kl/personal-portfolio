@@ -55,7 +55,7 @@ export const Contact: React.FC = () => {
                                         </ListItemIcon>
                                         <ListItemText primary={mail} />
                                     </ListItem>
-                                    <Divider />
+                                    <Divider light variant="middle" component="li" />
                                     <ListItem>
                                         <ListItemIcon>
                                             <PhoneIcon fontSize="small" />

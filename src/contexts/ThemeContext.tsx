@@ -1,11 +1,11 @@
 import { createContext } from "react";
 
-interface ThemeContext {
+interface ThemeContextInterface {
     theme?: 'light' | 'dark',
     setTheme: Function
 }
 
-export const ThemeContext = createContext<ThemeContext | null>(null);
+export const ThemeContext = createContext<ThemeContextInterface | null>(null);
 
 export const ThemeContextProvider = ThemeContext.Provider;
 
