@@ -16,9 +16,13 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
-import IMGPortfolio from '../../assets/images/portfolio/Portfolio.jpg';
-import IMGSmartShopping from '../../assets/images/portfolio/SmartShopping.jpg';
-import IMGKickOff2020 from '../../assets/images/portfolio/KickOff2020.jpg';
+import IMGPortfolioWebp from '../../assets/images/portfolio/Portfolio.webp';
+import IMGSmartShoppingWebp from '../../assets/images/portfolio/SmartShopping.webp';
+import IMGKickOff2020Webp from '../../assets/images/portfolio/KickOff2020.webp';
+
+import IMGPortfolioJpg from '../../assets/images/portfolio/Portfolio.jpg';
+import IMGSmartShoppingJpg from '../../assets/images/portfolio/SmartShopping.jpg';
+import IMGKickOff2020Jpg from '../../assets/images/portfolio/KickOff2020.jpg';
 
 import { LanguageContext } from '../../contexts/LanguageContext';
 
@@ -89,21 +93,24 @@ export const Portfolio: React.FC = () => {
   if (language === "en") {
     projects = [
       {
-        image: IMGPortfolio,
+        imageWebp: IMGPortfolioWebp,
+        imageJpg: IMGPortfolioJpg,
         title: "Portfolio",
         description: "Personal website about me to present my portfolio made with React and Material UI",
         liveLink: "http://julianklummer.de/",
         githubLink: "https://github.com/Julian-Kl/personal-portfolio"
       },
       {
-        image: IMGSmartShopping,
+        imageWebp: IMGSmartShoppingWebp,
+        imageJpg: IMGSmartShoppingJpg,
         title: "SmartShopping",
         description: "A smart shopping card that gives personalized search results based on the consumers preferences.",
         liveLink: "https://smartshopping.team5.uber.space/",
         githubLink: "https://github.com/Julian-Kl/smartshoppingfrontend"
       },
       {
-        image: IMGKickOff2020,
+        imageWebp: IMGKickOff2020Webp,
+        imageJpg: IMGKickOff2020Jpg,
         title: "Kick Off 2020",
         description: "Landingpage for a cross media campaign for the study kick off 2020 of our new freshman",
         liveLink: "http://kickoff2020.paesure.com/",
@@ -113,21 +120,24 @@ export const Portfolio: React.FC = () => {
   } else {
     projects = [
       {
-        image: IMGPortfolio,
+        imageWebp: IMGPortfolioWebp,
+        imageJpg: IMGPortfolioJpg,
         title: "Portfolio",
         description: "Persönliche Website über mich, um meine Projekte zu präsentieren. Entwickelt mit React und Material UI",
         liveLink: "http://julianklummer.de/",
         githubLink: "https://github.com/Julian-Kl/personal-portfolio"
       },
       {
-        image: IMGSmartShopping,
+        imageWebp: IMGSmartShoppingWebp,
+        imageJpg: IMGSmartShoppingJpg,
         title: "SmartShopping",
         description: "Eine intelligente Einkaufliste mit personalisierten Suchergebnissen basierend auf Benutzerpräferenzen",
         liveLink: "https://smartshopping.team5.uber.space/",
         githubLink: "https://github.com/Julian-Kl/smartshoppingfrontend"
       },
       {
-        image: IMGKickOff2020,
+        imageWebp: IMGKickOff2020Webp,
+        imageJpg: IMGKickOff2020Jpg,
         title: "Kick Off 2020",
         description: "Landingpage für eine cross-mediale Kampagne für den Studiums Kick Off 2020 unserer neuen Ersties",
         liveLink: "http://kickoff2020.paesure.com/",
@@ -159,7 +169,7 @@ export const Portfolio: React.FC = () => {
                     <CardActionArea href={project.liveLink} target="blank" title={project.title} rel="alternate">
                       <CardMedia
                         className={classes.media}
-                        image={project.image}
+                        image={project.imageWebp}
                         title={project.title}
                       />
                       <CardContent>

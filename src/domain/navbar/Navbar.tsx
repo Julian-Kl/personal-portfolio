@@ -246,7 +246,6 @@ export const Navbar: React.FC<Props> = (props) => {
           </Grow>
           {renderContactButton()}
           <div className={classes.grow}></div>
-          <label className={classes.label} htmlFor="theme-toggle">Change color theme</label>
           <Grow
             in={true}
             style={{ transformOrigin: '0 0 0' }}
@@ -255,6 +254,7 @@ export const Navbar: React.FC<Props> = (props) => {
             <IconButton onClick={changeTheme}>
               <Brightness4Icon />
               <FormControl>
+                <label className={classes.label} htmlFor="theme-toggle">Change color theme</label>
                 <Switch
                   id="theme-toggle"
                   color="default"
