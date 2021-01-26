@@ -7,39 +7,53 @@
     },
     "about": {
         "title": "About",
-        "description": ["My enthusiasm for web technologies and programming  began during my online media management studies. In the past seven semesters, I explored the interplay of technology, media and management that makes modern web applications possible.",
+        "description": [
+            "My enthusiasm for web technologies and programming  began during my online media management studies. In the past seven semesters, I explored the interplay of technology, media and management that makes modern web applications possible.",
             "Beyond my studies, I deepened my knowledge of programming languages like PHP, JavaScript and TypeScript and got familiar with React and APIs.",
-            "Another passion of mine is music and event management. Since 2018 I have been organizing events with my agency inPulse. I was able to dive deeper into the world of graphic design and content creation through various marketing campaigns for these events. This trained my eye for good design."],
+            "Another passion of mine is music and event management. Since 2018 I have been organizing events with my agency inPulse. I was able to dive deeper into the world of graphic design and content creation through various marketing campaigns for these events. This trained my eye for good design."
+        ],
         "stations": {
             "one": {
                 "title": "BACHELOR OF ARTS: ONLINE-MEDIEN-MANAGEMENT",
-                "institution" : "Stuttgart Media University",
+                "institution": "Stuttgart Media University",
                 "duration": "since 09/2017",
                 "location": "Stuttgart",
                 "icon": "SchoolIcon",
                 "link": "https://www.omm.hdm-stuttgart.de/",
                 "linkTitle": "Online media management website",
-                "infos": ["Online technologies, webdesign & programming", "Digital marketing & data analytics", "Digital content creation"]
+                "infos": [
+                    "Online technologies, webdesign & programming",
+                    "Digital marketing & data analytics",
+                    "Digital content creation"
+                ]
             },
             "two": {
                 "title": "FREELANCER EVENT-MANAGEMENT",
-                "institution" : "inPulse | Klummer und Tondera GbR",
+                "institution": "inPulse | Klummer und Tondera GbR",
                 "duration": "since 02/2018",
                 "location": "Heilbronn",
                 "icon": "WorkIcon",
                 "link": "https://inpulse.agency/",
                 "linkTitle": "Inpulse website",
-                "infos": ["Event- und brandmanagement", "Online & offline marketing", "Part-time"]
+                "infos": [
+                    "Event- und brandmanagement",
+                    "Online & offline marketing",
+                    "Part-time"
+                ]
             },
             "three": {
                 "title": "INTERNSHIP: E-COMMERCE CRM MARKETING",
-                "institution" : "Wein & Vinos GmbH",
+                "institution": "Wein & Vinos GmbH",
                 "duration": "09/2019 - 02/2020",
                 "location": "Berlin",
                 "icon": "WorkIcon",
                 "link": "https://www.vinos.de/",
                 "linkTitle": "Wein & Vinos online shop",
-                "infos": ["Customer relationship management", "E-Mail Marketing & analytics", "E-Commerce"]
+                "infos": [
+                    "Customer relationship management",
+                    "E-Mail Marketing & analytics",
+                    "E-Commerce"
+                ]
             }
         }
     },
@@ -48,18 +62,72 @@
         "skillCards": {
             "one": {
                 "title": "Web Development",
-                "skills": ["HTML", "SCSS & CSS", "JavaScript", "TypeScript", "PHP", "SQL", "React", "Bootstrap", "Material-UI", "Git/Github", "RestAPI"],
-                "levels": [5, 4, 4, 3, 4, 2, 4, 5, 4, 3, 4]
+                "skills": [
+                    "HTML",
+                    "SCSS & CSS",
+                    "JavaScript",
+                    "TypeScript",
+                    "PHP",
+                    "SQL",
+                    "React",
+                    "Bootstrap",
+                    "Material-UI",
+                    "Git/Github",
+                    "RestAPI"
+                ],
+                "levels": [
+                    5,
+                    4,
+                    4,
+                    3,
+                    4,
+                    2,
+                    4,
+                    5,
+                    4,
+                    3,
+                    4
+                ]
             },
             "two": {
                 "title": "Design & Media",
-                "skills": ["Adobe Premiere", "Adobe Photoshop", "Affinity Designer", "Logic Pro X", "Wordpress", "Facebook Ads Manager", "Google Ads Manager"],
-                "levels": [3, 2, 3, 5, 4, 4, 2]
+                "skills": [
+                    "Adobe Premiere",
+                    "Adobe Photoshop",
+                    "Affinity Designer",
+                    "Logic Pro X",
+                    "Wordpress",
+                    "Facebook Ads Manager",
+                    "Google Ads Manager"
+                ],
+                "levels": [
+                    3,
+                    2,
+                    3,
+                    5,
+                    4,
+                    4,
+                    2
+                ]
             },
             "three": {
                 "title": "Office & other",
-                "skills": ["MS Word", "MS Excel", "MS Powerpoint", "Social Media", "SEO", "Project Management"],
-                "levels": [4, 5, 4, 4, 4, 4]
+                "skills": [
+                    "MS Word",
+                    "MS Excel",
+                    "MS Powerpoint",
+                    "Social Media",
+                    "SEO",
+                    "Project Management"
+                ],
+                "levels": [
+                    4,
+                    5,
+                    4,
+                    4,
+                    4,
+                    4
+                ]
             }
         }
     },
@@ -68,8 +136,15 @@
     },
     "contact": {
         "title": "Contact",
-        "mail": "julian.klummer@outlook.de",
-        "telephone": "+49 171 6275469"
+        "contactFormNameInputLabel": "Name",
+        "contactFormSubjectInputLabel": "Subject",
+        "contactFormEmailInputLabel": "E-mail adress",
+        "contactFormMessageInputLabel": "Message",
+        "contactFormSubmitButtonText": "Send",
+        "contactFormPhoneButtonText": "Telephone",
+        "mailMessageSuccess": "Message sent succesfully. I will answer soon via mail.",
+        "mailMessageError": "Failed sending the message. Please send a mail to contact@julianklummer.de",
+        "telephoneMessage": "Telephonenumber: +49 171 6275469"
     },
     "legalNotice": {
         "title": "Legal Notice",

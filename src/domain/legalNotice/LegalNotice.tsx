@@ -15,6 +15,7 @@ import Box from '@material-ui/core/Box';
 import { Typography } from '@material-ui/core';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import PhoneIcon from '@material-ui/icons/Phone';
+import { ContactForm } from '../../components/ContactForm';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -42,8 +43,6 @@ export const LegalNotice: React.FC = () => {
     const title = languageContext?.dictionary.legalNotice.title!;
     const information = languageContext?.dictionary.legalNotice.information!;
     const contactTitle = languageContext?.dictionary.contact.title!;
-    const mail = languageContext?.dictionary.contact.mail!;
-    const telephone = languageContext?.dictionary.contact.telephone!;
 
     return (
         <Box m={4}>
@@ -67,20 +66,7 @@ export const LegalNotice: React.FC = () => {
                                 <Typography gutterBottom variant="h5" component="h2" className={classes.contactTitle}>
                                     {contactTitle}
                                 </Typography>
-                                <List>
-                                    <ListItem>
-                                        <ListItemIcon>
-                                            <PhoneIcon fontSize="small" />
-                                        </ListItemIcon>
-                                        <ListItemText primary={mail} />
-                                    </ListItem>
-                                    <ListItem>
-                                        <ListItemIcon>
-                                            <MailIcon fontSize="small" />
-                                        </ListItemIcon>
-                                        <ListItemText primary={telephone} />
-                                    </ListItem>
-                                </List>
+                                <ContactForm />
                             </CardContent>
                         </Card>
                     </Paper>

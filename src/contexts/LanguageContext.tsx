@@ -52,8 +52,15 @@ export interface Dictionary {
     },
     "contact": {
       "title": string,
-      "mail": string,
-      "telephone": string
+      "contactFormNameInputLabel": string,
+      "contactFormSubjectInputLabel": string,
+      "contactFormEmailInputLabel": string,
+      "contactFormMessageInputLabel": string,
+      "contactFormSubmitButtonText": string,
+      "contactFormPhoneButtonText": string,
+      "mailMessageSuccess": string,
+      "mailMessageError": string,
+      "telephoneMessage": string
     },
     "legalNotice": {
       "title": string,

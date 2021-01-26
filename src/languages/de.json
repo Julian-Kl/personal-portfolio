@@ -68,8 +68,15 @@
     },
     "contact": {
         "title": "Kontakt",
-        "mail": "julian.klummer@outlook.de",
-        "telephone": "+49 171 6275469"
+        "contactFormNameInputLabel": "Vor- & Nachname",
+        "contactFormSubjectInputLabel": "Betreff",
+        "contactFormEmailInputLabel": "E-Mail Adresse",
+        "contactFormMessageInputLabel": "Nachricht",
+        "contactFormSubmitButtonText": "Senden",
+        "contactFormPhoneButtonText": "Telefon",
+        "mailMessageSuccess": "Nachricht erflogreich gesendet. Ich antworten in den nächsten Tagen per Mail.",
+        "mailMessageError": "Fehler beim senden der Nachricht. Bitte schicken Sie eine Mail an contact@julianklummer.de",
+        "telephoneMessage": "Telefonnummer: +49 171 6275469"
     },
     "legalNotice": {
         "title": "Impressum",
