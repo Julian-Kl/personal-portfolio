@@ -15,6 +15,7 @@ import { Typography } from '@material-ui/core';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import PhoneIcon from '@material-ui/icons/Phone';
 
+import { MailForm } from './MailTest';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -44,25 +45,11 @@ export const Contact: React.FC = () => {
                 <Typography component="h2" variant="h1" color="textPrimary" className={classes.headline}>{title}</Typography>
             </Box>
             <div className={classes.root}>
-                <Grid item lg={4} md={5} sm={6} xs={12}>
+                <Grid item lg={6} md={8} sm={10} xs={12}>
                     <Paper elevation={3}>
                         <Card>
                             <CardContent>
-                                <List>
-                                    <ListItem>
-                                        <ListItemIcon>
-                                            <MailIcon fontSize="small" />
-                                        </ListItemIcon>
-                                        <ListItemText primary={mail} />
-                                    </ListItem>
-                                    <Divider light variant="middle" component="li" />
-                                    <ListItem>
-                                        <ListItemIcon>
-                                            <PhoneIcon fontSize="small" />
-                                        </ListItemIcon>
-                                        <ListItemText primary={telephone} />
-                                    </ListItem>
-                                </List>
+                                <MailForm/>
                             </CardContent>
                         </Card>
                     </Paper>

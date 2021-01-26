@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
         },
         img: {
+            minWidth: 200,
             width: '100%',
             height: 'auto',
             borderRadius: '50%',
@@ -46,10 +47,7 @@ export const About: React.FC = () => {
                 </Box>
                 <Grid container spacing={3} justify="center">
                     <Grid item lg={3} md={5} sm={10} xs={12}>
-                        <picture className={classes.img}>
-                            <source srcSet={IMGProfilWebp} type="image/webp" title="Julian Klummer" />
-                            <img src={IMGProfilJpg} title="Julian Klummer" alt="Julian Klummer" className={classes.img}></img>
-                        </picture>
+                        <img src={IMGProfilWebp} title="Julian Klummer" alt="Julian Klummer" className={classes.img}></img>
                     </Grid>
                     <Grid item lg={4} md={5} sm={10} xs={12}>
                         <Typography component="p" variant="body1" color="textPrimary" className={classes.typo}>
