@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useStyles, getTheme, light, dark } from './Theme';
+import { useStyles, getTheme, light, dark } from './theme';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';

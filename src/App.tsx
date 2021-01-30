@@ -107,7 +107,6 @@ const App: React.FC = (props) => {
 
 
   return (
-    <React.Fragment>
       <Router>
         <div className={classes.scrollContainer} onScroll={handleScroll} ref={scrollContainerRef}>
           <div className={classes.siteContainer}>
@@ -149,7 +148,6 @@ const App: React.FC = (props) => {
           </BottomNav>
         </div>
       </Router>
-    </React.Fragment>
   );
 }
 
