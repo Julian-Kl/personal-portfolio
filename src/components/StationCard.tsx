@@ -61,8 +61,6 @@ export const StationCard: React.FC<Station> = (props) => {
         setExpanded(!expanded);
     };
 
-    const languageContext = useContext(LanguageContext);
-
     const generateIcon = () => {
         switch (props.icon) {
             case "WorkIcon":

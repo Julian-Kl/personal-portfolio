@@ -72,7 +72,7 @@ export const About: React.FC = () => {
                                 institution={station.institution} 
                                 duration={station.duration}
                                 location={station.location}
-                                icon={station.location}
+                                icon={station.icon}
                                 link={station.link}
                                 linkTitle={station.linkTitle}
                                 infos={station.infos} />    
