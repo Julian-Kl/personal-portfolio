@@ -12,8 +12,8 @@
             "Beyond my studies, I deepened my knowledge of programming languages like PHP, JavaScript and TypeScript and got familiar with React and APIs.",
             "Another passion of mine is music and event management. Since 2018 I have been organizing events with my agency inPulse. I was able to dive deeper into the world of graphic design and content creation through various marketing campaigns for these events. This trained my eye for good design."
         ],
-        "stations": {
-            "one": {
+        "stations": [
+            {
                 "title": "BACHELOR OF ARTS: ONLINE-MEDIEN-MANAGEMENT",
                 "institution": "Stuttgart Media University",
                 "duration": "since 09/2017",
@@ -27,7 +27,7 @@
                     "Digital content creation"
                 ]
             },
-            "two": {
+            {
                 "title": "FREELANCER EVENT-MANAGEMENT",
                 "institution": "inPulse | Klummer und Tondera GbR",
                 "duration": "since 02/2018",
@@ -41,7 +41,7 @@
                     "Part-time"
                 ]
             },
-            "three": {
+            {
                 "title": "INTERNSHIP: E-COMMERCE CRM MARKETING",
                 "institution": "Wein & Vinos GmbH",
                 "duration": "09/2019 - 02/2020",
@@ -55,7 +55,7 @@
                     "E-Commerce"
                 ]
             }
-        }
+        ]
     },
     "skills": {
         "title": "Skills",

@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import { Typography } from '@material-ui/core';
+import { Icon, Typography } from '@material-ui/core';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { StationCard } from '../../components/StationCard';
 import IMGProfilWebp from '../../assets/images/about/profil.webp';
 import IMGProfilJpg from '../../assets/images/about/profil.jpg';
+import { EvStationRounded } from '@material-ui/icons';
+import { Station } from '../../contexts/LanguageContext';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -39,6 +41,9 @@ export const About: React.FC = () => {
     const title = languageContext?.dictionary.about.title!;
     const description = languageContext?.dictionary.about.description!;
 
+    const stationData = languageContext?.dictionary.about.stations!;
+
+
     return (
         <Box m={4}>
             <div className={classes.root}>
@@ -61,9 +66,17 @@ export const About: React.FC = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={5} md={10} sm={10} xs={12}>
-                        <StationCard station={"one"} />
-                        <StationCard station={"two"} />
-                        <StationCard station={"three"} />
+                        {stationData.map((station: Station) =>
+                            <StationCard 
+                                title={station.title}
+                                institution={station.institution} 
+                                duration={station.duration}
+                                location={station.location}
+                                icon={station.location}
+                                link={station.link}
+                                linkTitle={station.linkTitle}
+                                infos={station.infos} />    
+                        )}
                     </Grid>
                 </Grid>
             </div>

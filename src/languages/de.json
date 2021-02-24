@@ -10,8 +10,8 @@
         "description": ["Meine Begeisterung für Web-Technologien und Programmierung entdeckte ich im Laufe meines Online Medien Management Studiums. In meinen vergangenen sieben Semestern erschloss ich mir das Zusammenspiel von Technik, Medien und Management, welche moderne Webanwendungen ermöglichen.",
         "Über das Studium hinaus vertiefte ich in meiner Freizeit autodidaktisch meine Kenntnisse in Programmiersprachen wie PHP, JavaScript und TypeScript und setzte mich mit React und APIs auseinander.",
         "Meine zweite Leidenschaft ist die Musik und damit verbunden das Event-Management. Seit 2018 organisiere ich nebenberuflich Veranstaltungen. Durch diverse Marketingmaßnahmen bei dieser Arbeit konnte ich auch in die Welt des Graphik Designs und der Content Kreation tiefer eintauchen und mein Auge für Design schulen."],
-        "stations": {
-            "one": {
+        "stations": [
+            {
                 "title": "BACHELOR OF ARTS: ONLINE-MEDIEN-MANAGEMENT",
                 "institution" : "Hochschule der Medien Stuttgart",
                 "duration": "seit 09/2017",
@@ -21,7 +21,7 @@
                 "linkTitle": "Online Medien Management Studiengangs Website",
                 "infos": ["Online Technologien, Webdesign & Entwicklung", "Usability & User Experience Design", "Digital Marketing & Data Analytics", "Digital Content Erstellung"]
             },
-            "two": {
+            {
                 "title": "SELBSTÄNDIG IM BEREICH EVENT-MANAGEMENT",
                 "institution" : "inPulse | Klummer und Tondera GbR",
                 "duration": "seit 02/2018",
@@ -31,7 +31,7 @@
                 "linkTitle": "Inpulse Website",
                 "infos": ["Event- and brandmanagement", "Online & Offline Marketing", "teilzeit"]
             },
-            "three": {
+            {
                 "title": "PRAKTIKUM: E-COMMERCE CRM MARKETING",
                 "institution" : "Wein & Vinos GmbH",
                 "duration": "09/2019 - 02/2020",
@@ -41,7 +41,7 @@
                 "linkTitle": "Wein & Vinos Online Shop",
                 "infos": ["Customer relationship management", "E-Mail Marketing & Analytics", "E-Commerce"]
             }
-        }
+        ]
     },
     "skills": {
         "title": "Kenntnisse",

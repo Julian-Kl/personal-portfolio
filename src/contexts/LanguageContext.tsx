@@ -21,11 +21,7 @@ export interface Dictionary {
     "about": {
       "title": string,
       "description": string[],
-      "stations": {
-        "one": Station,
-        "two": Station,
-        "three": Station
-      }
+      "stations": Array<Station>
     },
     "skills": {
       "title": string,

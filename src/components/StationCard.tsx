@@ -25,10 +25,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Station } from '../contexts/LanguageContext';
 
 
-interface Props {
-    station: 'one' | 'two' | 'three'
-}
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -57,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const StationCard: React.FC<Props> = (props) => {
+export const StationCard: React.FC<Station> = (props) => {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -67,21 +63,8 @@ export const StationCard: React.FC<Props> = (props) => {
 
     const languageContext = useContext(LanguageContext);
 
-    let data: Station;
-    switch (props.station) {
-        case "one":
-            data = languageContext?.dictionary.about.stations.one!;
-            break;
-        case "two":
-            data = languageContext?.dictionary.about.stations.two!;
-            break;
-        case "three":
-            data = languageContext?.dictionary.about.stations.three!;
-            break;
-    }
-
     const generateIcon = () => {
-        switch (data.icon) {
+        switch (props.icon) {
             case "WorkIcon":
                 return <WorkIcon fontSize="large" />;
             case "SchoolIcon":
@@ -102,7 +85,7 @@ export const StationCard: React.FC<Props> = (props) => {
                             }
                             title={
                                 <Typography gutterBottom variant="body1" component="h3">
-                                    {data.title}
+                                    {props.title}
                                 </Typography>
                             }
                             subheader={
@@ -110,24 +93,24 @@ export const StationCard: React.FC<Props> = (props) => {
                                     <Grid container spacing={6} justify="flex-start">
                                         <Grid item xs={7}>
                                             <Typography gutterBottom variant="body2" component="p">
-                                                {data.institution}
+                                                {props.institution}
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={5}>
                                             <Typography gutterBottom variant="body2" component="p" align="right">
-                                                {data.duration}
+                                                {props.duration}
                                             </Typography>
                                         </Grid>
                                     </Grid>
                                     <Typography gutterBottom variant="body2" component="p">
-                                        <LocationOnIcon fontSize="small" /> {data.location}
+                                        <LocationOnIcon fontSize="small" /> {props.location}
                                     </Typography>
                                 </div>
                             }
                         />
                         <Divider />
                         <CardActions disableSpacing>
-                            <IconButton aria-label="Open Website" target="blank" href={data.link} title={data.linkTitle} rel="alternate">
+                            <IconButton aria-label="Open Website" target="blank" href={props.link} title={props.linkTitle} rel="alternate">
                                 <OpenInNewIcon fontSize="small"  className={classes.marginRight} />
                                 <Typography>
                                     Web
@@ -147,7 +130,7 @@ export const StationCard: React.FC<Props> = (props) => {
                         <Collapse in={expanded} timeout="auto" unmountOnExit>
                             <CardContent>
                                 <List dense>
-                                    {data.infos.map((info) => (
+                                    {props.infos.map((info) => (
                                         <ListItem>
                                             <ListItemText primary={info} />
                                         </ListItem>
